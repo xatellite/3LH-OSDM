@@ -1,0 +1,532 @@
+{
+	"info": {
+		"_postman_id": "109df993-afea-46eb-913b-5761faaf6ce4",
+		"name": "osdm",
+		"description": "In order to be able to run the demo of the osdm-facade, you need to select (activate) the \"OSDM benerail environment\"\n\nYou also need to set up the client certificate and the subscription key provided to you by benerail.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33090244"
+	},
+	"item": [
+		{
+			"name": "offer-booking-fulfillment flow",
+			"item": [
+				{
+					"name": "offers (trip search criteria)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Checking resposne\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"\r",
+									"    const offers = pm.response.json().offers;\r",
+									"\r",
+									"    pm.environment.set('selectedOffer', \"\");\r",
+									"\r",
+									"    console.log (\"Offers found: (The first offer will be set for booking by default.)\");\r",
+									"    if (offers) {\r",
+									"        pm.environment.set('selectedOffer', offers[0].offerId);\r",
+									"        offers.forEach((offer, index) => {\r",
+									"            console.log (`${index+1} - ${offer.offerId}`);\r",
+									"        });\r",
+									"    } else {\r",
+									"        console.log(\"There are no offers\");\r",
+									"        pm.test(\"There are no offers\", function () {\r",
+									"            pm.expect(0).to.gte(1);\r",
+									"        });\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"anonymousPassengerSpecifications\": [\r\n        {\r\n            \"externalRef\": \"passenger_1\",\r\n            \"dateOfBirth\": \"1970-01-01\",\r\n            \"type\": \"PERSON\",\r\n            \"detail\": {\r\n                \"firstName\": \"Piet\",\r\n                \"lastName\": \"Snot\",\r\n                \"phoneNumber\": \"+31475000001\",\r\n                \"email\": \"piet.snot@benerail.com\"\r\n            }\r\n        },\r\n        {\r\n            \"externalRef\": \"passenger_2\",\r\n            \"dateOfBirth\": \"1974-01-01\",\r\n            \"type\": \"PERSON\",\r\n            \"detail\": {\r\n                \"firstName\": \"Maria\",\r\n                \"lastName\": \"Janssens\",\r\n                \"phoneNumber\": \"+32475000000\",\r\n                \"email\": \"maria.janssens@benerail.com\"\r\n            }\r\n        }\r\n    ],\r\n    \"tripSearchCriteria\": {\r\n        \"departureTime\": \"{{departureDateTime (POST offers)}}\",\r\n        \"origin\": {\r\n            \"stopPlaceRef\": \"{{origin (POST offers)}}\",\r\n            \"objectType\": \"StopPlaceRef\"\r\n        },\r\n        \"destination\": {\r\n            \"stopPlaceRef\": \"{{destination (POST offers)}}\",\r\n            \"objectType\": \"StopPlaceRef\"\r\n        }\r\n    },\r\n    \"objectType\": \"OfferCollectionRequest\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/osdm-facade/offers",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"osdm-facade",
+								"offers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bookings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Checking response\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"\r",
+									"    var dnr = pm.response.json().booking.id;\r",
+									"    pm.environment.set('dnr', dnr);\r",
+									"    console.log (`Setting booking.id value to environment variable dnr = ${dnr}`);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "nl",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"offers\": [\r\n        {\r\n            \"offerId\": \"{{selectedOffer}}\",\r\n            \"passengerRefs\": [\r\n                \"passenger_1\", \"passenger_2\"\r\n            ]\r\n        }\r\n    ],\r\n    \"passengerSpecifications\": [\r\n        {\r\n            \"externalRef\": \"passenger_1\",\r\n            \"dateOfBirth\": \"1970-01-01\",\r\n            \"type\": \"PERSON\",\r\n            \"detail\": {\r\n                \"firstName\": \"Piet\",\r\n                \"lastName\": \"Peeters\",\r\n                \"phoneNumber\": \"+31475000001\",\r\n                \"email\": \"jean.dupont@benerail.com\"\r\n            }\r\n        },\r\n        {\r\n            \"externalRef\": \"passenger_2\",\r\n            \"dateOfBirth\": \"1970-01-01\",\r\n            \"type\": \"PERSON\",\r\n            \"detail\": {\r\n                \"firstName\": \"Maria\",\r\n                \"lastName\": \"Janssens\",\r\n                \"phoneNumber\": \"+32475000000\",\r\n                \"email\": \"maria.janssens@benerail.com\"\r\n            }\r\n        }\r\n    ],\r\n     \"purchaser\": {\r\n    \r\n    \"detail\": {\r\n      \"firstName\": \"\",\r\n      \"lastName\": \"\"\r\n      }},\r\n    \"externalRef\": \"myboooking\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/osdm-facade/bookings",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"osdm-facade",
+								"bookings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fulfillments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Checking response\", () => {\r",
+									"    pm.response.to.have.status(202);\r",
+									"    console.log (\"Fulfillments are now requested wait a minute or so, before next step.\")\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"offers\": [\r\n        {\r\n            \"offerId\": \"{{selectedOffer}}\",\r\n            \"passengerRefs\": [\r\n                \"passenger_1\"\r\n            ]\r\n        }\r\n    ],\r\n    \"passengerSpecifications\": [\r\n        {\r\n            \"externalRef\": \"passenger_1\",\r\n            \"dateOfBirth\": \"1970-01-01\",\r\n            \"type\": \"PERSON\"\r\n        },\r\n        {\r\n            \"externalRef\": \"passenger_2\",\r\n            \"dateOfBirth\": \"1970-01-01\",\r\n            \"type\": \"PERSON\"\r\n        }\r\n    ],\r\n    \"externalRef\": \"myboooking\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/osdm-facade/bookings/:bookingId/fulfillments",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"osdm-facade",
+								"bookings",
+								":bookingId",
+								"fulfillments"
+							],
+							"variable": [
+								{
+									"key": "bookingId",
+									"value": "{{dnr}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delay 10s",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://postman-echo.com/delay/10",
+							"protocol": "https",
+							"host": [
+								"postman-echo",
+								"com"
+							],
+							"path": [
+								"delay",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delay 10s",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://postman-echo.com/delay/10",
+							"protocol": "https",
+							"host": [
+								"postman-echo",
+								"com"
+							],
+							"path": [
+								"delay",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delay 10s",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://postman-echo.com/delay/10",
+							"protocol": "https",
+							"host": [
+								"postman-echo",
+								"com"
+							],
+							"path": [
+								"delay",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bookings",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Checking response\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"\r",
+									"    const fulfillments = pm.response.json().booking.fulfillments;\r",
+									"\r",
+									"    // Loop over the fulfillments and print documents (if they are already available)\r",
+									"    // I expect the id in the array to be always defined.\r",
+									"    if (fulfillments) {\r",
+									"        var fulfillmentIdSet = false;\r",
+									"        fulfillments.forEach((fulfillment, index) => {\r",
+									"            const fulfillmentDocuments = fulfillment.fulfillmentDocuments;\r",
+									"            if (fulfillmentDocuments) {\r",
+									"                fulfillmentDocuments.forEach((fulfillmentDocument) => {\r",
+									"                    console.log(`${index+1} - ${fulfillment.id} - ${fulfillmentDocument.downloadLink}`);\r",
+									"                    if (!fulfillmentIdSet) {\r",
+									"                        pm.environment.set('fulfillmentId', fulfillment.id);\r",
+									"                        fulfillmentIdSet = true;\r",
+									"                    }\r",
+									"                });\r",
+									"            } else {\r",
+									"                console.log(`${index+1} - ${fulfillment.id} - No documents (yet)`);\r",
+									"            }\r",
+									"        });\r",
+									"    } else {\r",
+									"        console.log(\"There are no fulfillments (yet)\");\r",
+									"    }\r",
+									"\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"offers\": [\r\n        {\r\n            \"offerId\": \"{{selectedOffer}}\",\r\n            \"passengerRefs\": [\r\n                \"passenger_1\"\r\n            ]\r\n        }\r\n    ],\r\n    \"passengerSpecifications\": [\r\n        {\r\n            \"externalRef\": \"passenger_1\",\r\n            \"dateOfBirth\": \"1970-01-01\",\r\n            \"type\": \"PERSON\"\r\n        },\r\n        {\r\n            \"externalRef\": \"passenger_2\",\r\n            \"dateOfBirth\": \"1970-01-01\",\r\n            \"type\": \"PERSON\"\r\n        }\r\n    ],\r\n    \"externalRef\": \"myboooking\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/osdm-facade/bookings/:bookingId",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"osdm-facade",
+								"bookings",
+								":bookingId"
+							],
+							"variable": [
+								{
+									"key": "bookingId",
+									"value": "{{dnr}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fulfillments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Checking response\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"\r",
+									"    \r",
+									"\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/osdm-facade/fulfillments/:fulfillmentId",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"osdm-facade",
+								"fulfillments",
+								":fulfillmentId"
+							],
+							"variable": [
+								{
+									"key": "fulfillmentId",
+									"value": "{{fulfillmentId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "This flow is a basic flow leading from simple offer request to actual tickets.\n\nStep through the flow and execute in sequence. The result of each step is reflected in the environment variables.  \nThe next step parameter can be changed by changing the environment paramer.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "other",
+			"item": [
+				{
+					"name": "places",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    var name = pm.response.json().places[0].name;\r",
+									"    var urn = pm.request.url.path[2];\r",
+									"    console.log (urn,  'corresponds to', name);\r",
+									"    console.log(new Date().toISOString());\r",
+									"\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "placeId",
+								"value": "{{placeId (GET places)}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/osdm-facade/places/:placeId",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"osdm-facade",
+								"places",
+								":placeId"
+							],
+							"variable": [
+								{
+									"key": "placeId",
+									"value": "{{placeId (GET places)}}",
+									"description": "Station ID in urn syntax"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "These requests are individual requests. They are not part of a flow but can be executed after the input parameter(s) is/are provided in the environment."
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// Add headers",
+					"// Doing it here makes it doesn't need to be done before each call individually.",
+					"pm.request.headers.add (",
+					"    {key:\"Ocp-Apim-Subscription-Key\", value: pm.environment.get(\"Ocp-Apim-Subscription-Key\")}",
+					");",
+					"",
+					"pm.request.headers.add (",
+					"    {key:\"Requestor\", value: pm.environment.get(\"Requestor\")}",
+					");",
+					"",
+					"// Only use header for specific circumstances",
+					"if (pm.environment.get(\"x-bnds-backend\"))",
+					"    pm.request.headers.add (",
+					"        {key:\"x-bnds-backend\", value: pm.environment.get(\"x-bnds-backend\")}",
+					"    );",
+					"",
+					"",
+					"// If departureDateTime environment variable is empty, we will set to next Monday 6h in the morning.",
+					"//",
+					"var departureDateTime = pm.environment.get ('departureDateTime (POST offers)');",
+					"if (departureDateTime == \"\") {",
+					"    console.log (\"Setting Next Monday as departureDateTime\");",
+					"    pm.environment.set('departureDateTime (POST offers)', getNextMonday()+\"T06:00+01:00\");",
+					"}",
+					"",
+					"",
+					"function getNextMonday() {",
+					"    const today = new Date();",
+					"    const dayOfWeek = today.getDay(); // 0 for Sunday, 1 for Monday, ..., 6 for Saturday",
+					"  ",
+					"    // Calculate the number of days until next Monday",
+					"    const daysUntilMonday = 8 - dayOfWeek;",
+					"  ",
+					"    // Set the date to the next Monday",
+					"    const nextMonday = new Date(today);",
+					"    nextMonday.setDate(today.getDate() + daysUntilMonday);",
+					"    console.log(nextMonday);",
+					"    // Format the date in ISO-8601 format",
+					"    const isoFormattedDate = nextMonday.toISOString().split('T')[0];",
+					"  ",
+					"    return isoFormattedDate;",
+					"}",
+					"",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "environment",
+			"value": "dev",
+			"type": "string"
+		}
+	]
+}
