@@ -28,9 +28,11 @@ We will add you as a contributor and you will be able to push your changes to th
 
 # Documentation
 
-### Open Source SBB Design System:
+### OSDM:
 
 OSDM Documentation: [https://osdm.io/](https://osdm.io/)
+
+### Open Source SBB Design System:
 
 Repository: [https://github.com/sbb-design-systems/lyne-components](https://github.com/sbb-design-systems/lyne-components)
 Documentation: [https://lyne-storybook.app.sbb.ch/?path=/docs/elements-sbb-accordion-sbb-accordion--docs](https://lyne-storybook.app.sbb.ch/?path=/docs/elements-sbb-accordion-sbb-accordion--docs)
