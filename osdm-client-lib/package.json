@@ -1,0 +1,22 @@
+{
+  "name": "osdm-client-lib",
+  "version": "0.1.0",
+  "description": "A javascript implementation of the Open Sales and Distribution Model interface",
+  "main": "lib.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.com:opentrainticketing/osdm-client-lib.git"
+  },
+  "keywords": [
+    "osdm",
+    "rail",
+    "distribution",
+    "ticketing"
+  ],
+  "author": "thenewcivilian, zandemax",
+  "license": "MIT"
+}
