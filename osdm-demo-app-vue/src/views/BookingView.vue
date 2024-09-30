@@ -13,20 +13,33 @@ import OSDM from 'osdm-client-lib'
 export default {
   data() {
     return {
+      bookingId: '',
       ticketData: {}
     }
   },
   methods: {
     openTicket() {
       // ToDo Finish data path
-      window.open(this.ticketData.fulfillment, '_blank').focus()
+      window
+        .open(
+          this.ticketData.booking.fulfillments[0].fulfillmentDocuments[0].downloadLink,
+          '_blank'
+        )
+        .focus()
+    },
+    fetchFulfillment() {
+      OSDM.getBooking(this.bookingId).then((booking) => {
+        this.ticketData = booking
+
+        if (!this.ticketData.booking.fulfillments) {
+          setTimeout(() => this.fetchFulfillment(), 1000)
+        }
+      })
     }
   },
   mounted() {
-    const bookingId = this.$route.b
-    OSDM.getBooking(bookingId).then((booking) => {
-      this.bookingData = booking
-    })
+    this.bookingId = this.$route.query.b
+    this.fetchFulfillment()
   }
 }
 </script>

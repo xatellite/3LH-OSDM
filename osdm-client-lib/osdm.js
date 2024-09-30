@@ -110,6 +110,4 @@ export const fulfillBooking = async (bookingId) => {
       body: JSON.stringify({}),
     }
   );
-  const data = await response.json();
-  return data;
 };
