@@ -31,8 +31,8 @@ export default {
       OSDM.getBooking(this.bookingId).then((booking) => {
         this.ticketData = booking
 
-        if (!this.ticketData.booking.fulfillments) {
-          setTimeout(() => this.fetchFulfillment(), 1000)
+        if (!this.ticketData.booking?.fulfillments) {
+          setTimeout(() => this.fetchFulfillment(), 2000)
         }
       })
     }
