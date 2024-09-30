@@ -1,0 +1,35 @@
+<div class="flex flex-col">
+  <div class="flex gap-5 items-center w-full p-10 justify-center">
+    <sbb-form-field>
+      <label>Origin</label>
+      <input type="text" placeholder="Input placeholder" [(ngModel)]="origin" />
+      <sbb-form-field-clear></sbb-form-field-clear>
+    </sbb-form-field>
+    <sbb-form-field>
+      <label>Destination</label>
+      <input
+        type="text"
+        placeholder="Input placeholder"
+        [(ngModel)]="destination"
+      />
+      <sbb-form-field-clear></sbb-form-field-clear>
+    </sbb-form-field>
+    <sbb-button (click)="getOffers()">Search</sbb-button>
+  </div>
+  <div class="flex flex-col">
+    @for (trip of tripResults; track trip?.id) {
+    <sbb-card type="submit" form="buy" value="trip">
+      {{ trip?.startTime }}
+      <div class="flex flex-col">
+        @for (offer of offerResults; track offer.offerId) {
+        <sbb-option value="Value 1" icon-name="ticket">
+          {{ offer.offerSummary.minimalPrice.amount }}
+
+          <sbb-button (click)="buyOffer(offer.offerId)"> Buy </sbb-button>
+        </sbb-option>
+        }
+      </div>
+    </sbb-card>
+    }
+  </div>
+</div>
