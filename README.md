@@ -20,7 +20,35 @@ http://localhost:5050/bileto/ -> OSDM Bileto Sandbox
 
 Copy Secrets from [WE NEED TO DEFINE THIS LINK]() to hack-proxy/.secrets
 
-## Step 3: Contribution
+## Step 3: Start and Development
+
+Start Proxy server:
+
+```bash
+cd hack-proxy
+npm install
+npm run exec
+```
+
+Start React frontend:
+
+```bash
+cd osdm-demo-app-react
+npm install
+npm run start
+```
+
+Start Vue frontend:
+
+```bash
+cd osdm-demo-app-react
+npm install
+npm run start
+```
+
+Common request logic has been placed in osdm-client-lib, but can also be moved to the specific project.
+
+## Step 4: Contribution
 
 Send an empty [non formal Email](mailto:hi@xatellite?subject=Repo_Access) to hi@xatellite containing your github username.
 
