@@ -1,12 +1,11 @@
-const fs = require("fs");
-var cors = require("cors");
+import fs from "fs";
+import cors from "cors";
+import http from "http";
+import httpProxy from "http-proxy";
 
-var http = require("http"),
-  httpProxy = require("http-proxy");
+const sandboxEntry = httpProxy.createProxyServer({});
 
-var sandboxEntry = httpProxy.createProxyServer({});
-
-var server = http.createServer(function (req, res) {
+const server = http.createServer(function (req, res) {
   // You can define here your custom logic to handle the request
   // and then proxy the request.
   if (req.url.startsWith("/benerail")) {
@@ -61,8 +60,35 @@ benerailProxy.on("proxyRes", (proxyRes, req, res) => {
 
 // SQILLS OSDM Sandbox Proxy
 
-let sqillsJWT = "";
+var sqillsJWT = "";
+
 // Get new JWT token
+const getJWT = async () => {
+  console.log("Renewing Sqills token");
+
+  const response = await fetch(
+    "https://api.sqills-osdm-test.cloud.sqills.com/oauth/v2/token",
+    {
+      method: "POST",
+      body: JSON.stringify({
+        grant_type: "https://com.sqills.s3.oauth.agent",
+        username: process.env.SQILLS_USERNAME,
+        password: process.env.SQILLS_PASSWORD,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Basic ${process.env.SQILLS_AUTH_TOKEN}`,
+      },
+    }
+  );
+  const data = await response.json();
+  return data.access_token;
+};
+
+getJWT().then((newToken) => {
+  sqillsJWT = newToken;
+  console.log("Sqills token setup");
+});
 
 const sqillsProxy = httpProxy
   .createProxyServer({
@@ -76,7 +102,8 @@ const sqillsProxy = httpProxy
   .listen(8010);
 
 sqillsProxy.on("proxyReq", function (proxyReq, req, res, options) {
-  proxyReq.setHeader("Authorization", `Basic ${sqillsJWT}`);
+  console.log(sqillsJWT);
+  proxyReq.setHeader("Authorization", `Bearer ${sqillsJWT}`);
 });
 
 sqillsProxy.on("proxyRes", (proxyRes, req, res) => {
