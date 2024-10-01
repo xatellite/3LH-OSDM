@@ -4,6 +4,7 @@ import OSDM from 'osdm-client-lib';
 import '@sbb-esta/lyne-elements/button.js';
 import '@sbb-esta/lyne-elements/form-field.js';
 import { FormsModule } from '@angular/forms';
+import {CurrencyPipe, DatePipe} from "@angular/common";
 
 const passengers = [
   {
@@ -22,20 +23,23 @@ const passengers = [
 @Component({
   selector: 'app-landing',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, DatePipe, CurrencyPipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.css',
 })
 export class LandingComponent {
   constructor(private router: Router) {}
-  origin = '';
-  destination = '';
+  origin = 'urn:uic:stn:5457076';
+  destination = 'urn:uic:stn:8814001';
 
   offerResults: any = [];
   tripResults: any = [];
 
   getOffers() {
+    const now = new Date();
+    now.setTime(now.getTime() + 2.5 *  60 * 60 * 1000);
+
     OSDM.searchOffers(
       {
         stopPlaceRef: this.origin,
@@ -46,7 +50,8 @@ export class LandingComponent {
         objectType: 'StopPlaceRef',
       },
       passengers,
-      '2024-10-10T10:00:00Z'
+      //now.toISOString()
+      '2024-10-14T10:00:00.000Z'
     ).then((offers: any) => {
       console.log(offers);
       this.offerResults = offers.offers;

@@ -18,12 +18,12 @@
   </div>
   <div class="flex flex-col">
     @for (trip of tripResults; track trip?.id) {
-    <sbb-card type="submit" form="buy" value="trip">
-      {{ trip?.startTime }}
+    <sbb-card type="submit" form="buy" value="trip" size="m" color="white">
+      {{ trip?.startTime | date:'dd.MM HH:mm' }} - {{ trip?.endTime | date:'dd.MM HH:mm' }}
       <div class="flex flex-col">
         @for (offer of offerResults; track offer.offerId) {
         <sbb-option value="Value 1" icon-name="ticket">
-          {{ offer.offerSummary.minimalPrice.amount }}
+          {{ offer.offerSummary.minimalPrice.amount / 100 | currency:offer.offerSummary.minimalPrice.currency:'symbol':'1.2-2' }} {{ offer.offerSummary.overallTravelClass }}
 
           <sbb-button (click)="buyOffer(offer.offerId)"> Buy </sbb-button>
         </sbb-option>
