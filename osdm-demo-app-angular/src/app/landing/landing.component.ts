@@ -32,7 +32,7 @@ export class LandingComponent {
   constructor(private router: Router) {}
   origin = 'urn:uic:stn:8814001'; // Brussels
   via = 'urn:uic:stn:8503000'; // Zurich
-  destination = 'urn:uic:stn:8503000'; // Praha
+  destination = 'urn:uic:stn:5457076'; // Praha
 
   offerResults: any = [];
   tripResults: any = [];
