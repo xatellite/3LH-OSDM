@@ -4,7 +4,7 @@ import OSDM from 'osdm-client-lib';
 import '@sbb-esta/lyne-elements/button.js';
 import '@sbb-esta/lyne-elements/form-field.js';
 import { FormsModule } from '@angular/forms';
-import { JsonPipe } from "@angular/common";
+import {CurrencyPipe, DatePipe, JsonPipe} from "@angular/common";
 
 const passengers = [
   {
@@ -23,7 +23,7 @@ const passengers = [
 @Component({
   selector: 'app-landing',
   standalone: true,
-  imports: [FormsModule, JsonPipe],
+  imports: [FormsModule, JsonPipe, DatePipe, CurrencyPipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.css',
@@ -48,7 +48,7 @@ export class LandingComponent {
         objectType: 'StopPlaceRef',
       },
       passengers,
-      '2024-10-10T10:00:00Z',
+      '2024-10-14T10:00:00.000Z',
       undefined,
       [
         {
