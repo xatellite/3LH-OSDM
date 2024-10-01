@@ -11,6 +11,7 @@ import {FormsModule} from '@angular/forms';
 import {CurrencyPipe, DatePipe, JsonPipe} from "@angular/common";
 import {DurationPipe} from "../duration.pipe";
 import * as mockData from '../../../assets/booking.json';
+import * as stationData from '../../../assets/uic.json';
 
 
 const passengers = [
@@ -49,6 +50,11 @@ export class ConfirmationComponent implements OnInit {
     OSDM.fulfillBooking(this.bookingId).then(() => {
       this.router.navigate(['/booking'], {queryParams: {b: this.bookingId}});
     });
+  }
+
+  resolveStationNameFromUic(uic: string) : string {
+    const parts : string[] = uic.split(":");
+    return stationData.stops[parts[parts.length - 1] as keyof typeof stationData.stops].default_name;
   }
 
   ngOnInit(): void {

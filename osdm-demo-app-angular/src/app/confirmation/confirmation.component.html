@@ -28,9 +28,9 @@
           <div style="padding: 10px; margin-bottom: 10px; border: 1px solid #eee; border-radius: 5px;">
             <strong>Train:</strong> {{ leg.timedLeg.service.carriers[0].name }} {{ leg.timedLeg.service.vehicleNumbers }}
             <br>
-            <strong>From:</strong> {{ leg.timedLeg.start.stopPlaceName }} {{ leg.timedLeg.start.serviceDeparture.timetabledTime | date: 'dd.MM HH:mm' }}
+            <strong>From:</strong> {{ this.resolveStationNameFromUic(leg.timedLeg.start.stopPlaceRef.stopPlaceRef) }} {{ leg.timedLeg.start.serviceDeparture.timetabledTime | date: 'dd.MM HH:mm' }}
             <br>
-            <strong>To:</strong> {{ leg.timedLeg.end.stopPlaceName }} {{ leg.timedLeg.end.serviceArrival.timetabledTime | date: 'dd.MM HH:mm' }}
+            <strong>To:</strong> {{  this.resolveStationNameFromUic(leg.timedLeg.end.stopPlaceRef.stopPlaceRef) }} {{ leg.timedLeg.end.serviceArrival.timetabledTime | date: 'dd.MM HH:mm' }}
             <br>
           </div>
         }
