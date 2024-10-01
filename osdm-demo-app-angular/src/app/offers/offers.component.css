@@ -1,0 +1,11 @@
+sbb-card {
+  margin-bottom: var(--sbb-spacing-fixed-1x);
+}
+
+sbb-icon {
+  vertical-align: bottom;
+}
+
+.offer-content span {
+  padding-right: 1rem;
+}

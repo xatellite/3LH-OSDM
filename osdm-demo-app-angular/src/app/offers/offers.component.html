@@ -1,14 +1,26 @@
 <div class="flex flex-col">
   @for (offer of offers; track offer.offerId) {
-    <sbb-option value="Value 1" icon-name="tickets-class-medium">
-      {{ offer.offerSummary.minimalPrice.amount / 100 | currency:offer.offerSummary.minimalPrice.currency:'symbol':'1.2-2' }} {{ offer.offerSummary.overallTravelClass }}
-      <div class="offer-card">
-        <p><strong>Minimal Price:</strong> {{ offer.offerSummary.minimalPrice.amount / 100 }} {{ offer.offerSummary.minimalPrice.currency }}</p>
-        <p><strong>Overall Service Class:</strong> {{ offer.offerSummary.overallServiceClass.name }} ({{ offer.offerSummary.overallServiceClass.type }})</p>
-        <p><strong>Overall Travel Class:</strong> {{ offer.offerSummary.overallTravelClass }}</p>
-        <p><strong>Flexibility:</strong> {{ offer.offerSummary.overallFlexibility }}</p>
+    <sbb-card>
+      <sbb-card-button (click)="buyOffer(offer.offerId)">Buy</sbb-card-button>
+
+      <sbb-card-badge color="white">
+        <span>{{ offer.offerSummary.minimalPrice.amount / 100 | currency:offer.offerSummary.minimalPrice.currency:'symbol':'1.2-2' }}</span>
+      </sbb-card-badge>
+
+      <div class="flex offer-content">
+        <span>
+          <sbb-icon name="tickets-class-small"></sbb-icon>
+          {{ normalizeClassText(offer.offerSummary.overallTravelClass) }}
+        </span>
+        <span>
+          <sbb-icon name="hand-heart-small"></sbb-icon>
+          {{ normalizeText(offer.offerSummary.overallServiceClass.name) }}
+        </span>
+        <span>
+          <sbb-icon name="arrows-circle-small"></sbb-icon>
+          {{ normalizeText(offer.offerSummary.overallFlexibility) }}
+        </span>
       </div>
-      <sbb-button (click)="buyOffer(offer.offerId)"> Buy</sbb-button>
-    </sbb-option>
+    </sbb-card>
   }
 </div>
