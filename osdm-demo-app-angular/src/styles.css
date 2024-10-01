@@ -20,4 +20,5 @@
     0.2
   ); /* 20% opacity dark green */
   --sbb-color-red150: #1b5e20; /* Even darker green */
+  background-color: var(--sbb-color-milk);
 }
