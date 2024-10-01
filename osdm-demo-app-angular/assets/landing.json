@@ -1,0 +1,1736 @@
+{
+  "offers": [
+    {
+      "offerId": "ee581cc7e0f238361224602eff78df6cf65eebf0f0d60e37ee54993fc75446b7",
+      "offerSummary": {
+        "minimalPrice": {
+          "currency": "EUR",
+          "amount": 14990,
+          "scale": 2
+        },
+        "overallServiceClass": {
+          "type": "STANDARD",
+          "name": "STANDARD"
+        },
+        "overallTravelClass": "SECOND",
+        "overallAccommodationType": "SEAT",
+        "overallAccommodationSubType": "ANY_SEAT",
+        "overallFlexibility": "NON_FLEXIBLE"
+      },
+      "createdOn": "2024-10-01T22:52:59.153+02:00",
+      "preBookableUntil": "2024-10-01T21:07:01Z",
+      "passengerRefs": [
+        "passenger_1"
+      ],
+      "products": [
+        {
+          "id": "cdbf393eada02a4d6d859ca536158ea9617e9589c1b114553875bc112518646d",
+          "code": "INVSSSEA2",
+          "owner": "urn:uic:rics:unknown",
+          "flexibility": "NON_FLEXIBLE",
+          "serviceClass": {
+            "type": "STANDARD"
+          },
+          "travelClass": "SECOND"
+        },
+        {
+          "id": "efcefa61bc6694e97a17206289bf3914c6f9fde2776ce37856fbf129b1832b6d",
+          "code": "INVRRESB2",
+          "owner": "urn:uic:rics:unknown",
+          "flexibility": "NON_FLEXIBLE",
+          "serviceClass": {
+            "type": "STANDARD"
+          },
+          "travelClass": "SECOND"
+        }
+      ],
+      "tripCoverage": {
+        "coveredTripId": "a7f3edd29103ff26abf7ae560446672a5869b20d2c353b86a6d07241cdcfad5c_eb143c082cefdc03b5531b2a618550d7802272c71d16e1d9bce210e083f51679"
+      },
+      "admissionOfferParts": [
+        {
+          "objectType": "AdmissionOfferPart",
+          "id": "fe9bf61fe374e1dc36898436e95abadcb3ebebc9752f2f90f55892d28fc73807",
+          "createdOn": "2024-10-01T22:52:59.153+02:00",
+          "validFrom": "2024-10-14T00:00:00+02:00",
+          "validUntil": "2024-10-15T00:00:00+02:00",
+          "price": {
+            "currency": "EUR",
+            "amount": 14990,
+            "scale": 2
+          },
+          "offerMode": "COLLECTIVE",
+          "isReusable": false,
+          "passengerRefs": [
+            "passenger_1"
+          ],
+          "refundable": "NO",
+          "exchangeable": "NO",
+          "products": [
+            {
+              "productId": "cdbf393eada02a4d6d859ca536158ea9617e9589c1b114553875bc112518646d"
+            }
+          ],
+          "availableFulfillmentOptions": [
+            {
+              "type": "ETICKET",
+              "media": "UIC_PDF"
+            }
+          ],
+          "isReservationRequired": false
+        }
+      ],
+      "reservationOfferParts": [
+        {
+          "objectType": "ReservationOfferPart",
+          "id": "64790cea15da06ea2704c2c9a28a5601ae38780ed5c2f4ae882e59b036141ec0",
+          "createdOn": "2024-10-01T22:52:59.153+02:00",
+          "validFrom": "2024-10-14T09:33:00+02:00",
+          "validUntil": "2024-10-14T19:23:00+02:00",
+          "price": {
+            "currency": "EUR",
+            "amount": 600,
+            "scale": 2
+          },
+          "offerMode": "COLLECTIVE",
+          "isReusable": false,
+          "passengerRefs": [
+            "passenger_1"
+          ],
+          "refundable": "NO",
+          "exchangeable": "NO",
+          "products": [
+            {
+              "productId": "efcefa61bc6694e97a17206289bf3914c6f9fde2776ce37856fbf129b1832b6d"
+            }
+          ],
+          "availableFulfillmentOptions": [
+            {
+              "type": "ETICKET",
+              "media": "UIC_PDF"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "offerId": "c1e6347f67b637e53116b3b47d69cc3095e3f4eb3e3285c5e8382bc9764d350c",
+      "offerSummary": {
+        "minimalPrice": {
+          "currency": "EUR",
+          "amount": 15990,
+          "scale": 2
+        },
+        "overallServiceClass": {
+          "type": "STANDARD",
+          "name": "STANDARD"
+        },
+        "overallTravelClass": "SECOND",
+        "overallAccommodationType": "SEAT",
+        "overallAccommodationSubType": "ANY_SEAT",
+        "overallFlexibility": "SEMI_FLEXIBLE"
+      },
+      "createdOn": "2024-10-01T22:52:59.191+02:00",
+      "preBookableUntil": "2024-10-01T21:07:01Z",
+      "passengerRefs": [
+        "passenger_1"
+      ],
+      "products": [
+        {
+          "id": "efcefa61bc6694e97a17206289bf3914c6f9fde2776ce37856fbf129b1832b6d",
+          "code": "INVRRESB2",
+          "owner": "urn:uic:rics:unknown",
+          "flexibility": "NON_FLEXIBLE",
+          "serviceClass": {
+            "type": "STANDARD"
+          },
+          "travelClass": "SECOND"
+        },
+        {
+          "id": "798a7a318547a792dceb71f58b44d69d5def0287ba607c014ee8e0478ba6e807",
+          "code": "INVSSPEA2",
+          "owner": "urn:uic:rics:unknown",
+          "flexibility": "SEMI_FLEXIBLE",
+          "serviceClass": {
+            "type": "STANDARD"
+          },
+          "travelClass": "SECOND"
+        }
+      ],
+      "tripCoverage": {
+        "coveredTripId": "a7f3edd29103ff26abf7ae560446672a5869b20d2c353b86a6d07241cdcfad5c_eb143c082cefdc03b5531b2a618550d7802272c71d16e1d9bce210e083f51679"
+      },
+      "admissionOfferParts": [
+        {
+          "objectType": "AdmissionOfferPart",
+          "id": "006c1b34de15bd447d858ea0e2b6c5ee6a510fe5ceeadf394115dee02961ba54",
+          "createdOn": "2024-10-01T22:52:59.191+02:00",
+          "validFrom": "2024-10-14T00:00:00+02:00",
+          "validUntil": "2024-10-15T00:00:00+02:00",
+          "price": {
+            "currency": "EUR",
+            "amount": 15990,
+            "scale": 2
+          },
+          "offerMode": "COLLECTIVE",
+          "isReusable": false,
+          "passengerRefs": [
+            "passenger_1"
+          ],
+          "refundable": "YES",
+          "exchangeable": "YES",
+          "products": [
+            {
+              "productId": "798a7a318547a792dceb71f58b44d69d5def0287ba607c014ee8e0478ba6e807"
+            }
+          ],
+          "availableFulfillmentOptions": [
+            {
+              "type": "ETICKET",
+              "media": "UIC_PDF"
+            }
+          ],
+          "isReservationRequired": false
+        }
+      ],
+      "reservationOfferParts": [
+        {
+          "objectType": "ReservationOfferPart",
+          "id": "12713a7e1cea7ec09f9034d63059e568ff32222eca6f1c34fe517e02d5597a07",
+          "createdOn": "2024-10-01T22:52:59.191+02:00",
+          "validFrom": "2024-10-14T09:33:00+02:00",
+          "validUntil": "2024-10-14T19:23:00+02:00",
+          "price": {
+            "currency": "EUR",
+            "amount": 600,
+            "scale": 2
+          },
+          "offerMode": "COLLECTIVE",
+          "isReusable": false,
+          "passengerRefs": [
+            "passenger_1"
+          ],
+          "refundable": "NO",
+          "exchangeable": "NO",
+          "products": [
+            {
+              "productId": "efcefa61bc6694e97a17206289bf3914c6f9fde2776ce37856fbf129b1832b6d"
+            }
+          ],
+          "availableFulfillmentOptions": [
+            {
+              "type": "ETICKET",
+              "media": "UIC_PDF"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "offerId": "fb10a0bdfe8f418422cbe7c8d7894a445935e0986d4461f6309f00632704ebd8",
+      "offerSummary": {
+        "minimalPrice": {
+          "currency": "EUR",
+          "amount": 17590,
+          "scale": 2
+        },
+        "overallServiceClass": {
+          "type": "BEST",
+          "name": "BEST_CLASS"
+        },
+        "overallTravelClass": "FIRST",
+        "overallAccommodationType": "SEAT",
+        "overallAccommodationSubType": "ANY_SEAT",
+        "overallFlexibility": "NON_FLEXIBLE"
+      },
+      "createdOn": "2024-10-01T22:52:59.228+02:00",
+      "preBookableUntil": "2024-10-01T21:07:01Z",
+      "passengerRefs": [
+        "passenger_1"
+      ],
+      "products": [
+        {
+          "id": "691296bb7b6a6b5219969c9dbeac8d2826ee286ddab1115316dc7cee9b25455d",
+          "code": "INVRRESB1",
+          "owner": "urn:uic:rics:unknown",
+          "flexibility": "NON_FLEXIBLE",
+          "serviceClass": {
+            "type": "BEST"
+          },
+          "travelClass": "FIRST"
+        },
+        {
+          "id": "bfc57a4b4b746254c13049f295019f98da35b6a3c5caaeab012b8f7269da0fca",
+          "code": "INVSSSEA1",
+          "owner": "urn:uic:rics:unknown",
+          "flexibility": "NON_FLEXIBLE",
+          "serviceClass": {
+            "type": "BEST"
+          },
+          "travelClass": "FIRST"
+        }
+      ],
+      "tripCoverage": {
+        "coveredTripId": "a7f3edd29103ff26abf7ae560446672a5869b20d2c353b86a6d07241cdcfad5c_eb143c082cefdc03b5531b2a618550d7802272c71d16e1d9bce210e083f51679"
+      },
+      "admissionOfferParts": [
+        {
+          "objectType": "AdmissionOfferPart",
+          "id": "4376a7b8edd4f4fc71ca2733936edc5a99448943342f78dab92ce364b31d0b19",
+          "createdOn": "2024-10-01T22:52:59.228+02:00",
+          "validFrom": "2024-10-14T00:00:00+02:00",
+          "validUntil": "2024-10-15T00:00:00+02:00",
+          "price": {
+            "currency": "EUR",
+            "amount": 17590,
+            "scale": 2
+          },
+          "offerMode": "COLLECTIVE",
+          "isReusable": false,
+          "passengerRefs": [
+            "passenger_1"
+          ],
+          "refundable": "NO",
+          "exchangeable": "NO",
+          "products": [
+            {
+              "productId": "bfc57a4b4b746254c13049f295019f98da35b6a3c5caaeab012b8f7269da0fca"
+            }
+          ],
+          "availableFulfillmentOptions": [
+            {
+              "type": "ETICKET",
+              "media": "UIC_PDF"
+            }
+          ],
+          "isReservationRequired": false
+        }
+      ],
+      "reservationOfferParts": [
+        {
+          "objectType": "ReservationOfferPart",
+          "id": "6f1db8f062718e327d077844d5ce80f64076f58d49e8f2f667ab926ae9b5d4fd",
+          "createdOn": "2024-10-01T22:52:59.228+02:00",
+          "validFrom": "2024-10-14T09:33:00+02:00",
+          "validUntil": "2024-10-14T19:23:00+02:00",
+          "price": {
+            "currency": "EUR",
+            "amount": 600,
+            "scale": 2
+          },
+          "offerMode": "COLLECTIVE",
+          "isReusable": false,
+          "passengerRefs": [
+            "passenger_1"
+          ],
+          "refundable": "NO",
+          "exchangeable": "NO",
+          "products": [
+            {
+              "productId": "691296bb7b6a6b5219969c9dbeac8d2826ee286ddab1115316dc7cee9b25455d"
+            }
+          ],
+          "availableFulfillmentOptions": [
+            {
+              "type": "ETICKET",
+              "media": "UIC_PDF"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "offerId": "86617f6d200be0a2e8bbb414fa30518cc945653837d667d57d55882ed5711e9c",
+      "offerSummary": {
+        "minimalPrice": {
+          "currency": "EUR",
+          "amount": 18590,
+          "scale": 2
+        },
+        "overallServiceClass": {
+          "type": "BEST",
+          "name": "BEST_CLASS"
+        },
+        "overallTravelClass": "FIRST",
+        "overallAccommodationType": "SEAT",
+        "overallAccommodationSubType": "ANY_SEAT",
+        "overallFlexibility": "SEMI_FLEXIBLE"
+      },
+      "createdOn": "2024-10-01T22:52:59.266+02:00",
+      "preBookableUntil": "2024-10-01T21:07:01Z",
+      "passengerRefs": [
+        "passenger_1"
+      ],
+      "products": [
+        {
+          "id": "691296bb7b6a6b5219969c9dbeac8d2826ee286ddab1115316dc7cee9b25455d",
+          "code": "INVRRESB1",
+          "owner": "urn:uic:rics:unknown",
+          "flexibility": "NON_FLEXIBLE",
+          "serviceClass": {
+            "type": "BEST"
+          },
+          "travelClass": "FIRST"
+        },
+        {
+          "id": "38f5e22eb974f5a65182d5bb7bd1e749779183ba02c25c7f8f2e2533f090bcdf",
+          "code": "INVSSPEA1",
+          "owner": "urn:uic:rics:unknown",
+          "flexibility": "SEMI_FLEXIBLE",
+          "serviceClass": {
+            "type": "BEST"
+          },
+          "travelClass": "FIRST"
+        }
+      ],
+      "tripCoverage": {
+        "coveredTripId": "a7f3edd29103ff26abf7ae560446672a5869b20d2c353b86a6d07241cdcfad5c_eb143c082cefdc03b5531b2a618550d7802272c71d16e1d9bce210e083f51679"
+      },
+      "admissionOfferParts": [
+        {
+          "objectType": "AdmissionOfferPart",
+          "id": "2cd88a65076f32db842ecaadaf36e1ea8cc4f64263810641939a59b75f2c2dd0",
+          "createdOn": "2024-10-01T22:52:59.266+02:00",
+          "validFrom": "2024-10-14T00:00:00+02:00",
+          "validUntil": "2024-10-15T00:00:00+02:00",
+          "price": {
+            "currency": "EUR",
+            "amount": 18590,
+            "scale": 2
+          },
+          "offerMode": "COLLECTIVE",
+          "isReusable": false,
+          "passengerRefs": [
+            "passenger_1"
+          ],
+          "refundable": "YES",
+          "exchangeable": "YES",
+          "products": [
+            {
+              "productId": "38f5e22eb974f5a65182d5bb7bd1e749779183ba02c25c7f8f2e2533f090bcdf"
+            }
+          ],
+          "availableFulfillmentOptions": [
+            {
+              "type": "ETICKET",
+              "media": "UIC_PDF"
+            }
+          ],
+          "isReservationRequired": false
+        }
+      ],
+      "reservationOfferParts": [
+        {
+          "objectType": "ReservationOfferPart",
+          "id": "eb43b1af565f115d0ac30e8436722eddbcd7677bb7df2dab26ff1e47b66de0c8",
+          "createdOn": "2024-10-01T22:52:59.266+02:00",
+          "validFrom": "2024-10-14T09:33:00+02:00",
+          "validUntil": "2024-10-14T19:23:00+02:00",
+          "price": {
+            "currency": "EUR",
+            "amount": 600,
+            "scale": 2
+          },
+          "offerMode": "COLLECTIVE",
+          "isReusable": false,
+          "passengerRefs": [
+            "passenger_1"
+          ],
+          "refundable": "NO",
+          "exchangeable": "NO",
+          "products": [
+            {
+              "productId": "691296bb7b6a6b5219969c9dbeac8d2826ee286ddab1115316dc7cee9b25455d"
+            }
+          ],
+          "availableFulfillmentOptions": [
+            {
+              "type": "ETICKET",
+              "media": "UIC_PDF"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "offerId": "187d54836f14842a9ac71006ae18d763b3c91d1dc7a08f4e6bf4f469226b6260",
+      "offerSummary": {
+        "minimalPrice": {
+          "currency": "EUR",
+          "amount": 22950,
+          "scale": 2
+        },
+        "overallServiceClass": {
+          "type": "STANDARD",
+          "name": "STANDARD"
+        },
+        "overallTravelClass": "SECOND",
+        "overallAccommodationType": "SEAT",
+        "overallAccommodationSubType": "ANY_SEAT",
+        "overallFlexibility": "FULL_FLEXIBLE"
+      },
+      "createdOn": "2024-10-01T22:52:59.304+02:00",
+      "preBookableUntil": "2024-10-01T21:07:01Z",
+      "passengerRefs": [
+        "passenger_1"
+      ],
+      "products": [
+        {
+          "id": "27386bea4f3ce277ea45fea9b4755f033734ed4a8c4b7dd0b7e0cbedd3f4a454",
+          "code": "INVSBUSA2",
+          "owner": "urn:uic:rics:unknown",
+          "flexibility": "FULL_FLEXIBLE",
+          "serviceClass": {
+            "type": "STANDARD"
+          },
+          "travelClass": "SECOND"
+        },
+        {
+          "id": "efcefa61bc6694e97a17206289bf3914c6f9fde2776ce37856fbf129b1832b6d",
+          "code": "INVRRESB2",
+          "owner": "urn:uic:rics:unknown",
+          "flexibility": "NON_FLEXIBLE",
+          "serviceClass": {
+            "type": "STANDARD"
+          },
+          "travelClass": "SECOND"
+        }
+      ],
+      "tripCoverage": {
+        "coveredTripId": "a7f3edd29103ff26abf7ae560446672a5869b20d2c353b86a6d07241cdcfad5c_eb143c082cefdc03b5531b2a618550d7802272c71d16e1d9bce210e083f51679"
+      },
+      "admissionOfferParts": [
+        {
+          "objectType": "AdmissionOfferPart",
+          "id": "c48fa7f5879a89062672e6503a5666696ce11d6d33360c3ff6e941e128fa69f0",
+          "createdOn": "2024-10-01T22:52:59.304+02:00",
+          "validFrom": "2024-10-14T00:00:00+02:00",
+          "validUntil": "2024-10-15T00:00:00+02:00",
+          "price": {
+            "currency": "EUR",
+            "amount": 22950,
+            "scale": 2
+          },
+          "offerMode": "COLLECTIVE",
+          "isReusable": false,
+          "passengerRefs": [
+            "passenger_1"
+          ],
+          "refundable": "YES",
+          "exchangeable": "YES",
+          "products": [
+            {
+              "productId": "27386bea4f3ce277ea45fea9b4755f033734ed4a8c4b7dd0b7e0cbedd3f4a454"
+            }
+          ],
+          "availableFulfillmentOptions": [
+            {
+              "type": "ETICKET",
+              "media": "UIC_PDF"
+            }
+          ],
+          "isReservationRequired": false
+        }
+      ],
+      "reservationOfferParts": [
+        {
+          "objectType": "ReservationOfferPart",
+          "id": "fd287d2536138ac64c7cc2f6a645866440cf720959e3df1fd576444e7adb96de",
+          "createdOn": "2024-10-01T22:52:59.304+02:00",
+          "validFrom": "2024-10-14T09:33:00+02:00",
+          "validUntil": "2024-10-14T19:23:00+02:00",
+          "price": {
+            "currency": "EUR",
+            "amount": 600,
+            "scale": 2
+          },
+          "offerMode": "COLLECTIVE",
+          "isReusable": false,
+          "passengerRefs": [
+            "passenger_1"
+          ],
+          "refundable": "NO",
+          "exchangeable": "NO",
+          "products": [
+            {
+              "productId": "efcefa61bc6694e97a17206289bf3914c6f9fde2776ce37856fbf129b1832b6d"
+            }
+          ],
+          "availableFulfillmentOptions": [
+            {
+              "type": "ETICKET",
+              "media": "UIC_PDF"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "offerId": "ae3c17e986f5799ee4b98264d17c26f0ca19a1ca1ccfc34fc1aa656bbc99ded9",
+      "offerSummary": {
+        "minimalPrice": {
+          "currency": "EUR",
+          "amount": 39370,
+          "scale": 2
+        },
+        "overallServiceClass": {
+          "type": "BEST",
+          "name": "BEST_CLASS"
+        },
+        "overallTravelClass": "FIRST",
+        "overallAccommodationType": "SEAT",
+        "overallAccommodationSubType": "ANY_SEAT",
+        "overallFlexibility": "FULL_FLEXIBLE"
+      },
+      "createdOn": "2024-10-01T22:52:59.343+02:00",
+      "preBookableUntil": "2024-10-01T21:07:01Z",
+      "passengerRefs": [
+        "passenger_1"
+      ],
+      "products": [
+        {
+          "id": "5f19ffbca9908c46934685c4456291513920f2ffd4c4e2c51d12b7f2cf85e90f",
+          "code": "INVSBUSA1",
+          "owner": "urn:uic:rics:unknown",
+          "flexibility": "FULL_FLEXIBLE",
+          "serviceClass": {
+            "type": "BEST"
+          },
+          "travelClass": "FIRST"
+        },
+        {
+          "id": "2f31ef53440baecc0cac0798deca8557c082a100b046f87756f2cacce475afeb",
+          "code": "INVRINCB1",
+          "owner": "urn:uic:rics:unknown",
+          "flexibility": "NON_FLEXIBLE",
+          "serviceClass": {
+            "type": "BEST"
+          },
+          "travelClass": "FIRST"
+        }
+      ],
+      "tripCoverage": {
+        "coveredTripId": "a7f3edd29103ff26abf7ae560446672a5869b20d2c353b86a6d07241cdcfad5c_eb143c082cefdc03b5531b2a618550d7802272c71d16e1d9bce210e083f51679"
+      },
+      "admissionOfferParts": [
+        {
+          "objectType": "AdmissionOfferPart",
+          "id": "f602c82ca4b39b3985df1d35e075ea9af1b59da9a8437ad0629866de624c5b1f",
+          "createdOn": "2024-10-01T22:52:59.343+02:00",
+          "validFrom": "2024-10-14T00:00:00+02:00",
+          "validUntil": "2024-10-15T00:00:00+02:00",
+          "price": {
+            "currency": "EUR",
+            "amount": 39370,
+            "scale": 2
+          },
+          "offerMode": "COLLECTIVE",
+          "isReusable": false,
+          "passengerRefs": [
+            "passenger_1"
+          ],
+          "refundable": "YES",
+          "exchangeable": "YES",
+          "products": [
+            {
+              "productId": "5f19ffbca9908c46934685c4456291513920f2ffd4c4e2c51d12b7f2cf85e90f"
+            }
+          ],
+          "availableFulfillmentOptions": [
+            {
+              "type": "ETICKET",
+              "media": "UIC_PDF"
+            }
+          ],
+          "isReservationRequired": false
+        }
+      ],
+      "reservationOfferParts": [
+        {
+          "objectType": "ReservationOfferPart",
+          "id": "3a73dbc40e8417ccc2ebfe9378f0c7aa9e3f2660e4fe4371107d636dd2797e23",
+          "createdOn": "2024-10-01T22:52:59.343+02:00",
+          "validFrom": "2024-10-14T09:33:00+02:00",
+          "validUntil": "2024-10-14T19:23:00+02:00",
+          "price": {
+            "currency": "EUR",
+            "amount": 0,
+            "scale": 2
+          },
+          "offerMode": "COLLECTIVE",
+          "isReusable": false,
+          "passengerRefs": [
+            "passenger_1"
+          ],
+          "refundable": "WITH_CONDITION",
+          "exchangeable": "NO",
+          "products": [
+            {
+              "productId": "2f31ef53440baecc0cac0798deca8557c082a100b046f87756f2cacce475afeb"
+            }
+          ],
+          "availableFulfillmentOptions": [
+            {
+              "type": "ETICKET",
+              "media": "UIC_PDF"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "offerId": "d1b5710335fd7a23e79c98a801b512e51322fc139634feded620283cad25f8eb",
+      "offerSummary": {
+        "minimalPrice": {
+          "currency": "EUR",
+          "amount": 13990,
+          "scale": 2
+        },
+        "overallServiceClass": {
+          "type": "STANDARD",
+          "name": "STANDARD"
+        },
+        "overallTravelClass": "SECOND",
+        "overallAccommodationType": "SEAT",
+        "overallAccommodationSubType": "ANY_SEAT",
+        "overallFlexibility": "NON_FLEXIBLE"
+      },
+      "createdOn": "2024-10-01T22:52:59.38+02:00",
+      "preBookableUntil": "2024-10-01T21:07:01Z",
+      "passengerRefs": [
+        "passenger_1"
+      ],
+      "products": [
+        {
+          "id": "efcefa61bc6694e97a17206289bf3914c6f9fde2776ce37856fbf129b1832b6d",
+          "code": "INVRRESB2",
+          "owner": "urn:uic:rics:unknown",
+          "flexibility": "NON_FLEXIBLE",
+          "serviceClass": {
+            "type": "STANDARD"
+          },
+          "travelClass": "SECOND"
+        },
+        {
+          "id": "cdbf393eada02a4d6d859ca536158ea9617e9589c1b114553875bc112518646d",
+          "code": "INVSSSEA2",
+          "owner": "urn:uic:rics:unknown",
+          "flexibility": "NON_FLEXIBLE",
+          "serviceClass": {
+            "type": "STANDARD"
+          },
+          "travelClass": "SECOND"
+        }
+      ],
+      "tripCoverage": {
+        "coveredTripId": "a7f3edd29103ff26abf7ae560446672a5869b20d2c353b86a6d07241cdcfad5c_2507aa52c84f2f5f09e6f88b9164a7268eb3da0005865ffece642ace63b41b77"
+      },
+      "admissionOfferParts": [
+        {
+          "objectType": "AdmissionOfferPart",
+          "id": "1d30f584f5888457612433b77bdc7f3fface618f702728b4d12b9e311235ee3c",
+          "createdOn": "2024-10-01T22:52:59.38+02:00",
+          "validFrom": "2024-10-14T00:00:00+02:00",
+          "validUntil": "2024-10-15T00:00:00+02:00",
+          "price": {
+            "currency": "EUR",
+            "amount": 13990,
+            "scale": 2
+          },
+          "offerMode": "COLLECTIVE",
+          "isReusable": false,
+          "passengerRefs": [
+            "passenger_1"
+          ],
+          "refundable": "NO",
+          "exchangeable": "NO",
+          "products": [
+            {
+              "productId": "cdbf393eada02a4d6d859ca536158ea9617e9589c1b114553875bc112518646d"
+            }
+          ],
+          "availableFulfillmentOptions": [
+            {
+              "type": "ETICKET",
+              "media": "UIC_PDF"
+            }
+          ],
+          "isReservationRequired": false
+        }
+      ],
+      "reservationOfferParts": [
+        {
+          "objectType": "ReservationOfferPart",
+          "id": "547c41ac6c5d95fc0a7c1dbf036233279135442c599867dded2adc018e29d982",
+          "createdOn": "2024-10-01T22:52:59.38+02:00",
+          "validFrom": "2024-10-14T09:33:00+02:00",
+          "validUntil": "2024-10-14T20:22:00+02:00",
+          "price": {
+            "currency": "EUR",
+            "amount": 600,
+            "scale": 2
+          },
+          "offerMode": "COLLECTIVE",
+          "isReusable": false,
+          "passengerRefs": [
+            "passenger_1"
+          ],
+          "refundable": "NO",
+          "exchangeable": "NO",
+          "products": [
+            {
+              "productId": "efcefa61bc6694e97a17206289bf3914c6f9fde2776ce37856fbf129b1832b6d"
+            }
+          ],
+          "availableFulfillmentOptions": [
+            {
+              "type": "ETICKET",
+              "media": "UIC_PDF"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "offerId": "5d286112ab7a2caea34ccf0a10629c9ca52efe9074212ea8487f91b910d17cca",
+      "offerSummary": {
+        "minimalPrice": {
+          "currency": "EUR",
+          "amount": 14990,
+          "scale": 2
+        },
+        "overallServiceClass": {
+          "type": "STANDARD",
+          "name": "STANDARD"
+        },
+        "overallTravelClass": "SECOND",
+        "overallAccommodationType": "SEAT",
+        "overallAccommodationSubType": "ANY_SEAT",
+        "overallFlexibility": "SEMI_FLEXIBLE"
+      },
+      "createdOn": "2024-10-01T22:52:59.415+02:00",
+      "preBookableUntil": "2024-10-01T21:07:01Z",
+      "passengerRefs": [
+        "passenger_1"
+      ],
+      "products": [
+        {
+          "id": "798a7a318547a792dceb71f58b44d69d5def0287ba607c014ee8e0478ba6e807",
+          "code": "INVSSPEA2",
+          "owner": "urn:uic:rics:unknown",
+          "flexibility": "SEMI_FLEXIBLE",
+          "serviceClass": {
+            "type": "STANDARD"
+          },
+          "travelClass": "SECOND"
+        },
+        {
+          "id": "efcefa61bc6694e97a17206289bf3914c6f9fde2776ce37856fbf129b1832b6d",
+          "code": "INVRRESB2",
+          "owner": "urn:uic:rics:unknown",
+          "flexibility": "NON_FLEXIBLE",
+          "serviceClass": {
+            "type": "STANDARD"
+          },
+          "travelClass": "SECOND"
+        }
+      ],
+      "tripCoverage": {
+        "coveredTripId": "a7f3edd29103ff26abf7ae560446672a5869b20d2c353b86a6d07241cdcfad5c_2507aa52c84f2f5f09e6f88b9164a7268eb3da0005865ffece642ace63b41b77"
+      },
+      "admissionOfferParts": [
+        {
+          "objectType": "AdmissionOfferPart",
+          "id": "ffdbbdf76e720afb3aa502e703c67848fc55e4b7df941bde8924ac31d71a5390",
+          "createdOn": "2024-10-01T22:52:59.415+02:00",
+          "validFrom": "2024-10-14T00:00:00+02:00",
+          "validUntil": "2024-10-15T00:00:00+02:00",
+          "price": {
+            "currency": "EUR",
+            "amount": 14990,
+            "scale": 2
+          },
+          "offerMode": "COLLECTIVE",
+          "isReusable": false,
+          "passengerRefs": [
+            "passenger_1"
+          ],
+          "refundable": "YES",
+          "exchangeable": "YES",
+          "products": [
+            {
+              "productId": "798a7a318547a792dceb71f58b44d69d5def0287ba607c014ee8e0478ba6e807"
+            }
+          ],
+          "availableFulfillmentOptions": [
+            {
+              "type": "ETICKET",
+              "media": "UIC_PDF"
+            }
+          ],
+          "isReservationRequired": false
+        }
+      ],
+      "reservationOfferParts": [
+        {
+          "objectType": "ReservationOfferPart",
+          "id": "f00b80ac4856277c2cf74a2db3770fe133e58123bc51c3c565722c3cdf1d9bb1",
+          "createdOn": "2024-10-01T22:52:59.415+02:00",
+          "validFrom": "2024-10-14T09:33:00+02:00",
+          "validUntil": "2024-10-14T20:22:00+02:00",
+          "price": {
+            "currency": "EUR",
+            "amount": 600,
+            "scale": 2
+          },
+          "offerMode": "COLLECTIVE",
+          "isReusable": false,
+          "passengerRefs": [
+            "passenger_1"
+          ],
+          "refundable": "NO",
+          "exchangeable": "NO",
+          "products": [
+            {
+              "productId": "efcefa61bc6694e97a17206289bf3914c6f9fde2776ce37856fbf129b1832b6d"
+            }
+          ],
+          "availableFulfillmentOptions": [
+            {
+              "type": "ETICKET",
+              "media": "UIC_PDF"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "offerId": "69a5e639ef7f055fc7d86b8406e81c247b726fe9479a0f38c4ed65c84032b63b",
+      "offerSummary": {
+        "minimalPrice": {
+          "currency": "EUR",
+          "amount": 16590,
+          "scale": 2
+        },
+        "overallServiceClass": {
+          "type": "BEST",
+          "name": "BEST_CLASS"
+        },
+        "overallTravelClass": "FIRST",
+        "overallAccommodationType": "SEAT",
+        "overallAccommodationSubType": "ANY_SEAT",
+        "overallFlexibility": "NON_FLEXIBLE"
+      },
+      "createdOn": "2024-10-01T22:52:59.452+02:00",
+      "preBookableUntil": "2024-10-01T21:07:01Z",
+      "passengerRefs": [
+        "passenger_1"
+      ],
+      "products": [
+        {
+          "id": "691296bb7b6a6b5219969c9dbeac8d2826ee286ddab1115316dc7cee9b25455d",
+          "code": "INVRRESB1",
+          "owner": "urn:uic:rics:unknown",
+          "flexibility": "NON_FLEXIBLE",
+          "serviceClass": {
+            "type": "BEST"
+          },
+          "travelClass": "FIRST"
+        },
+        {
+          "id": "bfc57a4b4b746254c13049f295019f98da35b6a3c5caaeab012b8f7269da0fca",
+          "code": "INVSSSEA1",
+          "owner": "urn:uic:rics:unknown",
+          "flexibility": "NON_FLEXIBLE",
+          "serviceClass": {
+            "type": "BEST"
+          },
+          "travelClass": "FIRST"
+        }
+      ],
+      "tripCoverage": {
+        "coveredTripId": "a7f3edd29103ff26abf7ae560446672a5869b20d2c353b86a6d07241cdcfad5c_2507aa52c84f2f5f09e6f88b9164a7268eb3da0005865ffece642ace63b41b77"
+      },
+      "admissionOfferParts": [
+        {
+          "objectType": "AdmissionOfferPart",
+          "id": "31d27d81afb1f50f93cbb4a759d08262cb6b12cb7790ac2a83b50cbe91d83769",
+          "createdOn": "2024-10-01T22:52:59.452+02:00",
+          "validFrom": "2024-10-14T00:00:00+02:00",
+          "validUntil": "2024-10-15T00:00:00+02:00",
+          "price": {
+            "currency": "EUR",
+            "amount": 16590,
+            "scale": 2
+          },
+          "offerMode": "COLLECTIVE",
+          "isReusable": false,
+          "passengerRefs": [
+            "passenger_1"
+          ],
+          "refundable": "NO",
+          "exchangeable": "NO",
+          "products": [
+            {
+              "productId": "bfc57a4b4b746254c13049f295019f98da35b6a3c5caaeab012b8f7269da0fca"
+            }
+          ],
+          "availableFulfillmentOptions": [
+            {
+              "type": "ETICKET",
+              "media": "UIC_PDF"
+            }
+          ],
+          "isReservationRequired": false
+        }
+      ],
+      "reservationOfferParts": [
+        {
+          "objectType": "ReservationOfferPart",
+          "id": "00dab98fcf3c9de179ee96698587a25d6ab8ccea6c14c80b584d8189d716f0df",
+          "createdOn": "2024-10-01T22:52:59.452+02:00",
+          "validFrom": "2024-10-14T09:33:00+02:00",
+          "validUntil": "2024-10-14T20:22:00+02:00",
+          "price": {
+            "currency": "EUR",
+            "amount": 600,
+            "scale": 2
+          },
+          "offerMode": "COLLECTIVE",
+          "isReusable": false,
+          "passengerRefs": [
+            "passenger_1"
+          ],
+          "refundable": "NO",
+          "exchangeable": "NO",
+          "products": [
+            {
+              "productId": "691296bb7b6a6b5219969c9dbeac8d2826ee286ddab1115316dc7cee9b25455d"
+            }
+          ],
+          "availableFulfillmentOptions": [
+            {
+              "type": "ETICKET",
+              "media": "UIC_PDF"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "offerId": "e404be6557e06ec5d63c3e16762cea0897d9da5cc5b79e71e7dcb5fab9fb74c9",
+      "offerSummary": {
+        "minimalPrice": {
+          "currency": "EUR",
+          "amount": 17590,
+          "scale": 2
+        },
+        "overallServiceClass": {
+          "type": "BEST",
+          "name": "BEST_CLASS"
+        },
+        "overallTravelClass": "FIRST",
+        "overallAccommodationType": "SEAT",
+        "overallAccommodationSubType": "ANY_SEAT",
+        "overallFlexibility": "SEMI_FLEXIBLE"
+      },
+      "createdOn": "2024-10-01T22:52:59.49+02:00",
+      "preBookableUntil": "2024-10-01T21:07:01Z",
+      "passengerRefs": [
+        "passenger_1"
+      ],
+      "products": [
+        {
+          "id": "691296bb7b6a6b5219969c9dbeac8d2826ee286ddab1115316dc7cee9b25455d",
+          "code": "INVRRESB1",
+          "owner": "urn:uic:rics:unknown",
+          "flexibility": "NON_FLEXIBLE",
+          "serviceClass": {
+            "type": "BEST"
+          },
+          "travelClass": "FIRST"
+        },
+        {
+          "id": "38f5e22eb974f5a65182d5bb7bd1e749779183ba02c25c7f8f2e2533f090bcdf",
+          "code": "INVSSPEA1",
+          "owner": "urn:uic:rics:unknown",
+          "flexibility": "SEMI_FLEXIBLE",
+          "serviceClass": {
+            "type": "BEST"
+          },
+          "travelClass": "FIRST"
+        }
+      ],
+      "tripCoverage": {
+        "coveredTripId": "a7f3edd29103ff26abf7ae560446672a5869b20d2c353b86a6d07241cdcfad5c_2507aa52c84f2f5f09e6f88b9164a7268eb3da0005865ffece642ace63b41b77"
+      },
+      "admissionOfferParts": [
+        {
+          "objectType": "AdmissionOfferPart",
+          "id": "31a58b66b557a3bbf5dc51947a4582239ecb483ef95b583a96072f2e118ed8ce",
+          "createdOn": "2024-10-01T22:52:59.49+02:00",
+          "validFrom": "2024-10-14T00:00:00+02:00",
+          "validUntil": "2024-10-15T00:00:00+02:00",
+          "price": {
+            "currency": "EUR",
+            "amount": 17590,
+            "scale": 2
+          },
+          "offerMode": "COLLECTIVE",
+          "isReusable": false,
+          "passengerRefs": [
+            "passenger_1"
+          ],
+          "refundable": "YES",
+          "exchangeable": "YES",
+          "products": [
+            {
+              "productId": "38f5e22eb974f5a65182d5bb7bd1e749779183ba02c25c7f8f2e2533f090bcdf"
+            }
+          ],
+          "availableFulfillmentOptions": [
+            {
+              "type": "ETICKET",
+              "media": "UIC_PDF"
+            }
+          ],
+          "isReservationRequired": false
+        }
+      ],
+      "reservationOfferParts": [
+        {
+          "objectType": "ReservationOfferPart",
+          "id": "67fed48f6312076a38101e3e93d9918f371c03b432960be3fe679c710255920b",
+          "createdOn": "2024-10-01T22:52:59.49+02:00",
+          "validFrom": "2024-10-14T09:33:00+02:00",
+          "validUntil": "2024-10-14T20:22:00+02:00",
+          "price": {
+            "currency": "EUR",
+            "amount": 600,
+            "scale": 2
+          },
+          "offerMode": "COLLECTIVE",
+          "isReusable": false,
+          "passengerRefs": [
+            "passenger_1"
+          ],
+          "refundable": "NO",
+          "exchangeable": "NO",
+          "products": [
+            {
+              "productId": "691296bb7b6a6b5219969c9dbeac8d2826ee286ddab1115316dc7cee9b25455d"
+            }
+          ],
+          "availableFulfillmentOptions": [
+            {
+              "type": "ETICKET",
+              "media": "UIC_PDF"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "offerId": "a75f51d2c99b0454c781b9383743397f239d73721049b3b25af51b119fd5ec1b",
+      "offerSummary": {
+        "minimalPrice": {
+          "currency": "EUR",
+          "amount": 20310,
+          "scale": 2
+        },
+        "overallServiceClass": {
+          "type": "STANDARD",
+          "name": "STANDARD"
+        },
+        "overallTravelClass": "SECOND",
+        "overallAccommodationType": "SEAT",
+        "overallAccommodationSubType": "ANY_SEAT",
+        "overallFlexibility": "FULL_FLEXIBLE"
+      },
+      "createdOn": "2024-10-01T22:52:59.528+02:00",
+      "preBookableUntil": "2024-10-01T21:07:01Z",
+      "passengerRefs": [
+        "passenger_1"
+      ],
+      "products": [
+        {
+          "id": "efcefa61bc6694e97a17206289bf3914c6f9fde2776ce37856fbf129b1832b6d",
+          "code": "INVRRESB2",
+          "owner": "urn:uic:rics:unknown",
+          "flexibility": "NON_FLEXIBLE",
+          "serviceClass": {
+            "type": "STANDARD"
+          },
+          "travelClass": "SECOND"
+        },
+        {
+          "id": "27386bea4f3ce277ea45fea9b4755f033734ed4a8c4b7dd0b7e0cbedd3f4a454",
+          "code": "INVSBUSA2",
+          "owner": "urn:uic:rics:unknown",
+          "flexibility": "FULL_FLEXIBLE",
+          "serviceClass": {
+            "type": "STANDARD"
+          },
+          "travelClass": "SECOND"
+        }
+      ],
+      "tripCoverage": {
+        "coveredTripId": "a7f3edd29103ff26abf7ae560446672a5869b20d2c353b86a6d07241cdcfad5c_2507aa52c84f2f5f09e6f88b9164a7268eb3da0005865ffece642ace63b41b77"
+      },
+      "admissionOfferParts": [
+        {
+          "objectType": "AdmissionOfferPart",
+          "id": "ef8ecea0ef9492052e43e441e94d25b08dcdddcc6d5bc477533561e458fe1a88",
+          "createdOn": "2024-10-01T22:52:59.528+02:00",
+          "validFrom": "2024-10-14T00:00:00+02:00",
+          "validUntil": "2024-10-15T00:00:00+02:00",
+          "price": {
+            "currency": "EUR",
+            "amount": 20310,
+            "scale": 2
+          },
+          "offerMode": "COLLECTIVE",
+          "isReusable": false,
+          "passengerRefs": [
+            "passenger_1"
+          ],
+          "refundable": "YES",
+          "exchangeable": "YES",
+          "products": [
+            {
+              "productId": "27386bea4f3ce277ea45fea9b4755f033734ed4a8c4b7dd0b7e0cbedd3f4a454"
+            }
+          ],
+          "availableFulfillmentOptions": [
+            {
+              "type": "ETICKET",
+              "media": "UIC_PDF"
+            }
+          ],
+          "isReservationRequired": false
+        }
+      ],
+      "reservationOfferParts": [
+        {
+          "objectType": "ReservationOfferPart",
+          "id": "323f898c020f9c69e2822f2b89dd4f0469b3914e381e941f8a51036baf0d4418",
+          "createdOn": "2024-10-01T22:52:59.528+02:00",
+          "validFrom": "2024-10-14T09:33:00+02:00",
+          "validUntil": "2024-10-14T20:22:00+02:00",
+          "price": {
+            "currency": "EUR",
+            "amount": 600,
+            "scale": 2
+          },
+          "offerMode": "COLLECTIVE",
+          "isReusable": false,
+          "passengerRefs": [
+            "passenger_1"
+          ],
+          "refundable": "NO",
+          "exchangeable": "NO",
+          "products": [
+            {
+              "productId": "efcefa61bc6694e97a17206289bf3914c6f9fde2776ce37856fbf129b1832b6d"
+            }
+          ],
+          "availableFulfillmentOptions": [
+            {
+              "type": "ETICKET",
+              "media": "UIC_PDF"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "offerId": "08ae272bc19ec38f19c035f6fbcb33ee0e18816674270f70b13347ab28a8526d",
+      "offerSummary": {
+        "minimalPrice": {
+          "currency": "EUR",
+          "amount": 34920,
+          "scale": 2
+        },
+        "overallServiceClass": {
+          "type": "BEST",
+          "name": "BEST_CLASS"
+        },
+        "overallTravelClass": "FIRST",
+        "overallAccommodationType": "SEAT",
+        "overallAccommodationSubType": "ANY_SEAT",
+        "overallFlexibility": "FULL_FLEXIBLE"
+      },
+      "createdOn": "2024-10-01T22:52:59.565+02:00",
+      "preBookableUntil": "2024-10-01T21:07:01Z",
+      "passengerRefs": [
+        "passenger_1"
+      ],
+      "products": [
+        {
+          "id": "2f31ef53440baecc0cac0798deca8557c082a100b046f87756f2cacce475afeb",
+          "code": "INVRINCB1",
+          "owner": "urn:uic:rics:unknown",
+          "flexibility": "NON_FLEXIBLE",
+          "serviceClass": {
+            "type": "BEST"
+          },
+          "travelClass": "FIRST"
+        },
+        {
+          "id": "5f19ffbca9908c46934685c4456291513920f2ffd4c4e2c51d12b7f2cf85e90f",
+          "code": "INVSBUSA1",
+          "owner": "urn:uic:rics:unknown",
+          "flexibility": "FULL_FLEXIBLE",
+          "serviceClass": {
+            "type": "BEST"
+          },
+          "travelClass": "FIRST"
+        }
+      ],
+      "tripCoverage": {
+        "coveredTripId": "a7f3edd29103ff26abf7ae560446672a5869b20d2c353b86a6d07241cdcfad5c_2507aa52c84f2f5f09e6f88b9164a7268eb3da0005865ffece642ace63b41b77"
+      },
+      "admissionOfferParts": [
+        {
+          "objectType": "AdmissionOfferPart",
+          "id": "e55020f4b41ac3ca2085b0f0833b79324439ec69f1261afe4130af9f211d22e3",
+          "createdOn": "2024-10-01T22:52:59.565+02:00",
+          "validFrom": "2024-10-14T00:00:00+02:00",
+          "validUntil": "2024-10-15T00:00:00+02:00",
+          "price": {
+            "currency": "EUR",
+            "amount": 34920,
+            "scale": 2
+          },
+          "offerMode": "COLLECTIVE",
+          "isReusable": false,
+          "passengerRefs": [
+            "passenger_1"
+          ],
+          "refundable": "YES",
+          "exchangeable": "YES",
+          "products": [
+            {
+              "productId": "5f19ffbca9908c46934685c4456291513920f2ffd4c4e2c51d12b7f2cf85e90f"
+            }
+          ],
+          "availableFulfillmentOptions": [
+            {
+              "type": "ETICKET",
+              "media": "UIC_PDF"
+            }
+          ],
+          "isReservationRequired": false
+        }
+      ],
+      "reservationOfferParts": [
+        {
+          "objectType": "ReservationOfferPart",
+          "id": "50f6b545ee7eaeef4de2fd09044f8fca523421955890a1602b3f6b5103d42b26",
+          "createdOn": "2024-10-01T22:52:59.565+02:00",
+          "validFrom": "2024-10-14T09:33:00+02:00",
+          "validUntil": "2024-10-14T20:22:00+02:00",
+          "price": {
+            "currency": "EUR",
+            "amount": 0,
+            "scale": 2
+          },
+          "offerMode": "COLLECTIVE",
+          "isReusable": false,
+          "passengerRefs": [
+            "passenger_1"
+          ],
+          "refundable": "WITH_CONDITION",
+          "exchangeable": "NO",
+          "products": [
+            {
+              "productId": "2f31ef53440baecc0cac0798deca8557c082a100b046f87756f2cacce475afeb"
+            }
+          ],
+          "availableFulfillmentOptions": [
+            {
+              "type": "ETICKET",
+              "media": "UIC_PDF"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "anonymousPassengerSpecifications": [
+    {
+      "externalRef": "passenger_1",
+      "dateOfBirth": "1980-01-01",
+      "type": "PERSON"
+    }
+  ],
+  "trips": [
+    {
+      "id": "a7f3edd29103ff26abf7ae560446672a5869b20d2c353b86a6d07241cdcfad5c_eb143c082cefdc03b5531b2a618550d7802272c71d16e1d9bce210e083f51679",
+      "duration": "PT9H50M",
+      "direction": "OUT_BOUND",
+      "origin": {
+        "objectType": "StopPlaceRef",
+        "stopPlaceRef": "urn:uic:stn:8503000"
+      },
+      "destination": {
+        "objectType": "StopPlaceRef",
+        "stopPlaceRef": "urn:uic:stn:5457076"
+      },
+      "startTime": "2024-10-14T09:33:00+02:00",
+      "endTime": "2024-10-14T19:23:00+02:00",
+      "transfers": 4,
+      "legs": [
+        {
+          "id": "1",
+          "timedLeg": {
+            "start": {
+              "stopPlaceRef": {
+                "objectType": "StopPlaceRef",
+                "stopPlaceRef": "urn:uic:stn:8503000"
+              },
+              "stopPlaceName": "ZUERICH HB",
+              "serviceDeparture": {
+                "timetabledTime": "2024-10-14T09:33:00+02:00"
+              }
+            },
+            "end": {
+              "stopPlaceRef": {
+                "objectType": "StopPlaceRef",
+                "stopPlaceRef": "urn:uic:stn:8020347"
+              },
+              "stopPlaceName": "MUENCHEN HBF",
+              "serviceArrival": {
+                "timetabledTime": "2024-10-14T13:04:00+02:00"
+              }
+            },
+            "service": {
+              "productCategory": {
+                "name": "EUROCITY",
+                "shortName": "EC",
+                "productCategoryRef": "urn:uic:sbc:EC"
+              },
+              "vehicleNumbers": [
+                "99"
+              ],
+              "carriers": [
+                {
+                  "ref": "urn:uic:rics:SBB"
+                }
+              ]
+            },
+            "duration": "PT3H31M"
+          }
+        },
+        {
+          "id": "2",
+          "transferLeg": {
+            "start": {
+              "objectType": "StopPlaceRef",
+              "stopPlaceRef": "urn:uic:stn:8020347"
+            },
+            "end": {
+              "objectType": "StopPlaceRef",
+              "stopPlaceRef": "urn:uic:stn:8020347"
+            },
+            "duration": "PT10M"
+          }
+        },
+        {
+          "id": "3",
+          "timedLeg": {
+            "start": {
+              "stopPlaceRef": {
+                "objectType": "StopPlaceRef",
+                "stopPlaceRef": "urn:uic:stn:8020347"
+              },
+              "stopPlaceName": "MUENCHEN HBF",
+              "serviceDeparture": {
+                "timetabledTime": "2024-10-14T13:18:00+02:00"
+              }
+            },
+            "end": {
+              "stopPlaceRef": {
+                "objectType": "StopPlaceRef",
+                "stopPlaceRef": "urn:uic:stn:8022193"
+              },
+              "stopPlaceName": "NUERNBERG HBF",
+              "serviceArrival": {
+                "timetabledTime": "2024-10-14T14:31:00+02:00"
+              }
+            },
+            "service": {
+              "productCategory": {
+                "name": "INTERCITY EXPRESS",
+                "shortName": "ICE",
+                "productCategoryRef": "urn:uic:sbc:ICE"
+              },
+              "vehicleNumbers": [
+                "536"
+              ],
+              "carriers": [
+                {
+                  "ref": "urn:uic:rics:DB"
+                }
+              ]
+            },
+            "duration": "PT1H13M"
+          }
+        },
+        {
+          "id": "4",
+          "timedLeg": {
+            "start": {
+              "stopPlaceRef": {
+                "objectType": "StopPlaceRef",
+                "stopPlaceRef": "urn:uic:stn:8022193"
+              },
+              "stopPlaceName": "NUERNBERG HBF",
+              "serviceDeparture": {
+                "timetabledTime": "2024-10-14T14:37:00+02:00"
+              }
+            },
+            "end": {
+              "stopPlaceRef": {
+                "objectType": "StopPlaceRef",
+                "stopPlaceRef": "urn:uic:stn:8026071"
+              },
+              "stopPlaceName": "MARKTREDWITZ",
+              "serviceArrival": {
+                "timetabledTime": "2024-10-14T15:51:00+02:00"
+              }
+            },
+            "service": {
+              "productCategory": {
+                "name": "REGIONAL EXPRESS",
+                "shortName": "RE",
+                "productCategoryRef": "urn:uic:sbc:RE"
+              },
+              "vehicleNumbers": [
+                "3411"
+              ],
+              "carriers": [
+                {
+                  "ref": "urn:uic:rics:DB"
+                }
+              ]
+            },
+            "duration": "PT1H14M"
+          }
+        },
+        {
+          "id": "5",
+          "timedLeg": {
+            "start": {
+              "stopPlaceRef": {
+                "objectType": "StopPlaceRef",
+                "stopPlaceRef": "urn:uic:stn:8026071"
+              },
+              "stopPlaceName": "MARKTREDWITZ",
+              "serviceDeparture": {
+                "timetabledTime": "2024-10-14T16:03:00+02:00"
+              }
+            },
+            "end": {
+              "stopPlaceRef": {
+                "objectType": "StopPlaceRef",
+                "stopPlaceRef": "urn:uic:stn:5475035"
+              },
+              "stopPlaceName": "CHEB",
+              "serviceArrival": {
+                "timetabledTime": "2024-10-14T16:24:00+02:00"
+              }
+            },
+            "service": {
+              "productCategory": {
+                "name": "REGIONAL EXPRESS",
+                "shortName": "RE",
+                "productCategoryRef": "urn:uic:sbc:RE"
+              },
+              "vehicleNumbers": [
+                "5289"
+              ],
+              "carriers": [
+                {
+                  "ref": "urn:uic:rics:DB"
+                }
+              ]
+            },
+            "duration": "PT21M"
+          }
+        },
+        {
+          "id": "6",
+          "timedLeg": {
+            "start": {
+              "stopPlaceRef": {
+                "objectType": "StopPlaceRef",
+                "stopPlaceRef": "urn:uic:stn:5475035"
+              },
+              "stopPlaceName": "CHEB",
+              "serviceDeparture": {
+                "timetabledTime": "2024-10-14T16:33:00+02:00"
+              }
+            },
+            "end": {
+              "stopPlaceRef": {
+                "objectType": "StopPlaceRef",
+                "stopPlaceRef": "urn:uic:stn:5457076"
+              },
+              "stopPlaceName": "PRAHA HL.N.",
+              "serviceArrival": {
+                "timetabledTime": "2024-10-14T19:23:00+02:00"
+              }
+            },
+            "service": {
+              "productCategory": {
+                "name": "INTERCITY",
+                "shortName": "IC",
+                "productCategoryRef": "urn:uic:sbc:IC"
+              },
+              "vehicleNumbers": [
+                "563"
+              ],
+              "carriers": [
+                {
+                  "ref": "urn:uic:rics:CD"
+                }
+              ]
+            },
+            "duration": "PT2H50M"
+          }
+        }
+      ],
+      "_links": [
+        {
+          "rel": "self",
+          "href": "https://benerail-stg-apim.azure-api.net/osdm-facade/trips/a7f3edd29103ff26abf7ae560446672a5869b20d2c353b86a6d07241cdcfad5c_eb143c082cefdc03b5531b2a618550d7802272c71d16e1d9bce210e083f51679",
+          "type": "GET",
+          "value": "CHAJD-CZPHN-20241014-0933-PT9H50M-#4"
+        }
+      ]
+    },
+    {
+      "id": "a7f3edd29103ff26abf7ae560446672a5869b20d2c353b86a6d07241cdcfad5c_2507aa52c84f2f5f09e6f88b9164a7268eb3da0005865ffece642ace63b41b77",
+      "duration": "PT10H49M",
+      "direction": "OUT_BOUND",
+      "origin": {
+        "objectType": "StopPlaceRef",
+        "stopPlaceRef": "urn:uic:stn:8503000"
+      },
+      "destination": {
+        "objectType": "StopPlaceRef",
+        "stopPlaceRef": "urn:uic:stn:5457076"
+      },
+      "startTime": "2024-10-14T09:33:00+02:00",
+      "endTime": "2024-10-14T20:22:00+02:00",
+      "transfers": 1,
+      "legs": [
+        {
+          "id": "1",
+          "timedLeg": {
+            "start": {
+              "stopPlaceRef": {
+                "objectType": "StopPlaceRef",
+                "stopPlaceRef": "urn:uic:stn:8503000"
+              },
+              "stopPlaceName": "ZUERICH HB",
+              "serviceDeparture": {
+                "timetabledTime": "2024-10-14T09:33:00+02:00"
+              }
+            },
+            "end": {
+              "stopPlaceRef": {
+                "objectType": "StopPlaceRef",
+                "stopPlaceRef": "urn:uic:stn:8020347"
+              },
+              "stopPlaceName": "MUENCHEN HBF",
+              "serviceArrival": {
+                "timetabledTime": "2024-10-14T13:04:00+02:00"
+              }
+            },
+            "service": {
+              "productCategory": {
+                "name": "EUROCITY",
+                "shortName": "EC",
+                "productCategoryRef": "urn:uic:sbc:EC"
+              },
+              "vehicleNumbers": [
+                "99"
+              ],
+              "carriers": [
+                {
+                  "ref": "urn:uic:rics:SBB"
+                }
+              ]
+            },
+            "duration": "PT3H31M"
+          }
+        },
+        {
+          "id": "2",
+          "transferLeg": {
+            "start": {
+              "objectType": "StopPlaceRef",
+              "stopPlaceRef": "urn:uic:stn:8020347"
+            },
+            "end": {
+              "objectType": "StopPlaceRef",
+              "stopPlaceRef": "urn:uic:stn:8020347"
+            },
+            "duration": "PT10M"
+          }
+        },
+        {
+          "id": "3",
+          "timedLeg": {
+            "start": {
+              "stopPlaceRef": {
+                "objectType": "StopPlaceRef",
+                "stopPlaceRef": "urn:uic:stn:8020347"
+              },
+              "stopPlaceName": "MUENCHEN HBF",
+              "serviceDeparture": {
+                "timetabledTime": "2024-10-14T14:44:00+02:00"
+              }
+            },
+            "end": {
+              "stopPlaceRef": {
+                "objectType": "StopPlaceRef",
+                "stopPlaceRef": "urn:uic:stn:5457076"
+              },
+              "stopPlaceName": "PRAHA HL.N.",
+              "serviceArrival": {
+                "timetabledTime": "2024-10-14T20:22:00+02:00"
+              }
+            },
+            "service": {
+              "productCategory": {
+                "name": "Regional train",
+                "shortName": "DPN",
+                "productCategoryRef": "urn:uic:sbc:DPN"
+              },
+              "vehicleNumbers": [
+                "361"
+              ],
+              "carriers": [
+                {
+                  "ref": "urn:uic:rics:ALX"
+                }
+              ]
+            },
+            "duration": "PT5H38M"
+          }
+        }
+      ],
+      "_links": [
+        {
+          "rel": "self",
+          "href": "https://benerail-stg-apim.azure-api.net/osdm-facade/trips/a7f3edd29103ff26abf7ae560446672a5869b20d2c353b86a6d07241cdcfad5c_2507aa52c84f2f5f09e6f88b9164a7268eb3da0005865ffece642ace63b41b77",
+          "type": "GET",
+          "value": "CHAJD-CZPHN-20241014-0933-PT10H49M-#1"
+        }
+      ]
+    }
+  ]
+}

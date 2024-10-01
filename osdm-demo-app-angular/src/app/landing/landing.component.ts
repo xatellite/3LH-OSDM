@@ -11,6 +11,7 @@ import { CurrencyPipe, DatePipe, JsonPipe } from "@angular/common";
 import * as uicData from '../../../assets/uic.json';
 import { DurationPipe } from "../duration.pipe";
 import { OffersComponent } from "../offers/offers.component";
+import * as mockData from "../../../assets/landing.json";
 
 const passengers = [
   {
@@ -44,14 +45,18 @@ export class LandingComponent implements OnInit {
   stationDataMap = new Map<string, string>();
   stations: string[] = [];
   loading = false;
-  selectedTrip: any;
   selectedOffers: any;
+  useMockData = false;
 
   ngOnInit() {
     Object.values(uicData.stops).forEach((value) => {
       this.stationDataMap.set(value.default_name, value.id);
     });
-  }
+      if  (this.useMockData) {
+        this.tripResults = mockData.trips;
+        this.selectedOffers = mockData.offers;
+      }
+    }
 
   offerResults: any = [];
   tripResults: any = [];
