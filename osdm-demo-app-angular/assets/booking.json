@@ -1,0 +1,346 @@
+{
+  "booking": {
+    "id": "PRJLLFC",
+    "createdOn": "2024-10-01T19:36:57.113+02:00",
+    "passengers": [
+      {
+        "id": "passenger_1",
+        "externalRef": "passenger_1",
+        "dateOfBirth": "1980-01-01",
+        "age": 44,
+        "type": "PERSON",
+        "detail": {
+          "firstName": "Elo",
+          "lastName": "Musterperson",
+          "email": "elo.musterperson@dlh.com",
+          "phoneNumber": "+49475000001"
+        }
+      }
+    ],
+    "provisionalPrice": {
+      "currency": "EUR",
+      "amount": 16190,
+      "scale": 2
+    },
+    "confirmedPrice": {
+      "currency": "EUR",
+      "amount": 0,
+      "scale": 2
+    },
+    "bookedOffers": [
+      {
+        "offerId": "1",
+        "admissions": [
+          {
+            "objectType": "Admission",
+            "id": "ADMISSION_01",
+            "createdOn": "2024-10-01T19:37:07.482+02:00",
+            "confirmableUntil": "2024-10-01T20:36:58+02:00",
+            "validFrom": "2024-10-10T11:33:00+02:00",
+            "price": {
+              "currency": "EUR",
+              "amount": 14990,
+              "scale": 2
+            },
+            "products": [
+              {
+                "productId": "ac533329-cecc-4f6c-9971-43c0e752305f",
+                "legIds": [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5"
+                ]
+              }
+            ],
+            "status": "PREBOOKED",
+            "passengerIds": [
+              "passenger_1"
+            ],
+            "refundable": "NO",
+            "exchangeable": "NO"
+          }
+        ],
+        "reservations": [
+          {
+            "objectType": "Reservation",
+            "id": "RESERVATION_02",
+            "createdOn": "2024-10-01T19:37:07.674+02:00",
+            "confirmableUntil": "2024-10-01T20:36:58+02:00",
+            "validFrom": "2024-10-10T11:33:00+02:00",
+            "price": {
+              "currency": "EUR",
+              "amount": 600,
+              "scale": 2
+            },
+            "products": [
+              {
+                "productId": "3676bdc9-adae-46f0-bed9-c33f45ba13dd",
+                "legIds": [
+                  "1"
+                ]
+              }
+            ],
+            "status": "PREBOOKED",
+            "passengerIds": [
+              "passenger_1"
+            ],
+            "refundable": "NO",
+            "exchangeable": "NO"
+          },
+          {
+            "objectType": "Reservation",
+            "id": "RESERVATION_03",
+            "createdOn": "2024-10-01T19:37:07.674+02:00",
+            "confirmableUntil": "2024-10-01T20:36:58+02:00",
+            "validFrom": "2024-10-10T15:18:00+02:00",
+            "price": {
+              "currency": "EUR",
+              "amount": 600,
+              "scale": 2
+            },
+            "products": [
+              {
+                "productId": "3676bdc9-adae-46f0-bed9-c33f45ba13dd",
+                "legIds": [
+                  "2"
+                ]
+              }
+            ],
+            "status": "PREBOOKED",
+            "passengerIds": [
+              "passenger_1"
+            ],
+            "refundable": "NO",
+            "exchangeable": "NO"
+          }
+        ],
+        "tripCoverage": {
+          "coveredTripId": "1"
+        },
+        "products": [
+          {
+            "id": "3676bdc9-adae-46f0-bed9-c33f45ba13dd",
+            "code": "INVRRESB2",
+            "owner": "urn:uic:rics:unknown",
+            "flexibility": "NON_FLEXIBLE",
+            "serviceClass": {
+              "type": "STANDARD"
+            },
+            "travelClass": "SECOND"
+          },
+          {
+            "id": "ac533329-cecc-4f6c-9971-43c0e752305f",
+            "code": "INVSSSEA2",
+            "owner": "urn:uic:rics:unknown",
+            "flexibility": "NON_FLEXIBLE",
+            "serviceClass": {
+              "type": "STANDARD"
+            },
+            "travelClass": "SECOND"
+          }
+        ]
+      }
+    ],
+    "trips": [
+      {
+        "id": "1",
+        "duration": "PT9H49M",
+        "direction": "OUT_BOUND",
+        "origin": {
+          "objectType": "StopPlaceRef",
+          "stopPlaceRef": "urn:uic:stn:8503000"
+        },
+        "destination": {
+          "objectType": "StopPlaceRef",
+          "stopPlaceRef": "urn:uic:stn:5457076"
+        },
+        "startTime": "2024-10-10T11:33:00+02:00",
+        "endTime": "2024-10-10T21:22:00+02:00",
+        "legs": [
+          {
+            "id": "1",
+            "timedLeg": {
+              "start": {
+                "stopPlaceRef": {
+                  "objectType": "StopPlaceRef",
+                  "stopPlaceRef": "urn:uic:stn:8503000"
+                },
+                "stopPlaceName": "ZUERICH HB",
+                "serviceDeparture": {
+                  "timetabledTime": "2024-10-10T11:33:00+02:00"
+                }
+              },
+              "end": {
+                "stopPlaceRef": {
+                  "objectType": "StopPlaceRef",
+                  "stopPlaceRef": "urn:uic:stn:8020347"
+                },
+                "stopPlaceName": "MUENCHEN HBF",
+                "serviceArrival": {
+                  "timetabledTime": "2024-10-10T15:04:00+02:00"
+                }
+              },
+              "service": {
+                "vehicleNumbers": [
+                  "191"
+                ],
+                "carriers": [
+                  {
+                    "name": "EC"
+                  }
+                ]
+              },
+              "duration": "PT3H31M"
+            }
+          },
+          {
+            "id": "2",
+            "timedLeg": {
+              "start": {
+                "stopPlaceRef": {
+                  "objectType": "StopPlaceRef",
+                  "stopPlaceRef": "urn:uic:stn:8020347"
+                },
+                "stopPlaceName": "MUENCHEN HBF",
+                "serviceDeparture": {
+                  "timetabledTime": "2024-10-10T15:18:00+02:00"
+                }
+              },
+              "end": {
+                "stopPlaceRef": {
+                  "objectType": "StopPlaceRef",
+                  "stopPlaceRef": "urn:uic:stn:8022193"
+                },
+                "stopPlaceName": "NUERNBERG HBF",
+                "serviceArrival": {
+                  "timetabledTime": "2024-10-10T16:30:00+02:00"
+                }
+              },
+              "service": {
+                "vehicleNumbers": [
+                  "584"
+                ],
+                "carriers": [
+                  {
+                    "name": "ICE"
+                  }
+                ]
+              },
+              "duration": "PT1H12M"
+            }
+          },
+          {
+            "id": "3",
+            "timedLeg": {
+              "start": {
+                "stopPlaceRef": {
+                  "objectType": "StopPlaceRef",
+                  "stopPlaceRef": "urn:uic:stn:8022193"
+                },
+                "stopPlaceName": "NUERNBERG HBF",
+                "serviceDeparture": {
+                  "timetabledTime": "2024-10-10T16:37:00+02:00"
+                }
+              },
+              "end": {
+                "stopPlaceRef": {
+                  "objectType": "StopPlaceRef",
+                  "stopPlaceRef": "urn:uic:stn:8026071"
+                },
+                "stopPlaceName": "MARKTREDWITZ",
+                "serviceArrival": {
+                  "timetabledTime": "2024-10-10T17:51:00+02:00"
+                }
+              },
+              "service": {
+                "vehicleNumbers": [
+                  "3413"
+                ],
+                "carriers": [
+                  {
+                    "name": "RE"
+                  }
+                ]
+              },
+              "duration": "PT1H14M"
+            }
+          },
+          {
+            "id": "4",
+            "timedLeg": {
+              "start": {
+                "stopPlaceRef": {
+                  "objectType": "StopPlaceRef",
+                  "stopPlaceRef": "urn:uic:stn:8026071"
+                },
+                "stopPlaceName": "MARKTREDWITZ",
+                "serviceDeparture": {
+                  "timetabledTime": "2024-10-10T18:02:00+02:00"
+                }
+              },
+              "end": {
+                "stopPlaceRef": {
+                  "objectType": "StopPlaceRef",
+                  "stopPlaceRef": "urn:uic:stn:5475035"
+                },
+                "stopPlaceName": "CHEB",
+                "serviceArrival": {
+                  "timetabledTime": "2024-10-10T18:25:00+02:00"
+                }
+              },
+              "service": {
+                "vehicleNumbers": [
+                  "5291"
+                ],
+                "carriers": [
+                  {
+                    "name": "RE"
+                  }
+                ]
+              },
+              "duration": "PT23M"
+            }
+          },
+          {
+            "id": "5",
+            "timedLeg": {
+              "start": {
+                "stopPlaceRef": {
+                  "objectType": "StopPlaceRef",
+                  "stopPlaceRef": "urn:uic:stn:5475035"
+                },
+                "stopPlaceName": "CHEB",
+                "serviceDeparture": {
+                  "timetabledTime": "2024-10-10T18:33:00+02:00"
+                }
+              },
+              "end": {
+                "stopPlaceRef": {
+                  "objectType": "StopPlaceRef",
+                  "stopPlaceRef": "urn:uic:stn:5457076"
+                },
+                "stopPlaceName": "PRAHA HL.N.",
+                "serviceArrival": {
+                  "timetabledTime": "2024-10-10T21:22:00+02:00"
+                }
+              },
+              "service": {
+                "vehicleNumbers": [
+                  "565"
+                ],
+                "carriers": [
+                  {
+                    "name": "IC"
+                  }
+                ]
+              },
+              "duration": "PT2H49M"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

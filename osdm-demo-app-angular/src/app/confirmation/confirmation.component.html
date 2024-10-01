@@ -1,0 +1,45 @@
+<div class="flex flex-col w-full justify-center items-center">
+  @if (!bookingId) {
+    <p>
+      <sbb-loading-indicator
+        variant="circle"
+        size="s"
+        color="smoke"
+      ></sbb-loading-indicator>
+      Preparing booking...
+    </p>
+  } @else {
+    <sbb-card type="submit" size="m" color="white">
+      <h1 class="text-2xl font-bold mb-4">Overview</h1>
+      <div class="mb-4">
+        <h2 class="text-xl font-semibold">Booking ID: {{ bookingId }}</h2>
+      </div>
+      @for (trip of booking.booking.trips; track trip.id) {
+        <div class="mb-4">
+          <ul>
+            <li><strong>Duration:</strong> {{ trip.duration | duration }}</li>
+            <li><strong>Start:</strong> {{ trip.startTime | date: 'dd.MM HH:mm' }}</li>
+            <li><strong>End:</strong> {{ trip.endTime | date: 'dd.MM HH:mm' }}</li>
+            <li><strong>Transfers:</strong> {{ trip.legs.length - 1 }}</li>
+          </ul>
+        </div>
+
+        @for (leg of trip.legs; track leg.id) {
+          <div style="padding: 10px; margin-bottom: 10px; border: 1px solid #eee; border-radius: 5px;">
+            <strong>Train:</strong> {{ leg.timedLeg.service.carriers[0].name }} {{ leg.timedLeg.service.vehicleNumbers }}
+            <br>
+            <strong>From:</strong> {{ leg.timedLeg.start.stopPlaceName }} {{ leg.timedLeg.start.serviceDeparture.timetabledTime | date: 'dd.MM HH:mm' }}
+            <br>
+            <strong>To:</strong> {{ leg.timedLeg.end.stopPlaceName }} {{ leg.timedLeg.end.serviceArrival.timetabledTime | date: 'dd.MM HH:mm' }}
+            <br>
+          </div>
+        }
+      }
+    </sbb-card>
+    <sbb-button (click)="confirm()" [disabled]="loading">
+      @if (loading) {
+        <sbb-loading-indicator variant="circle" size="s"></sbb-loading-indicator>
+      }
+      Confirm Booking</sbb-button>
+  }
+</div>

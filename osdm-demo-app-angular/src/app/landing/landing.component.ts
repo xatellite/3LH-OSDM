@@ -37,8 +37,8 @@ export class LandingComponent implements OnInit {
   constructor(private router: Router) {
   }
 
-  origin = 'Bruxelles-Midi'; // Brussels
-  via = 'Zürich HB'; // Zurich
+  origin = 'Zürich HB'; // Brussels
+  via = 'München Hbf'; // Zurich
   destination = 'Praha hl.n.'; // Praha
   stationDataMap = new Map<string, string>();
   stations: string[] = [];
@@ -65,7 +65,7 @@ export class LandingComponent implements OnInit {
         objectType: 'StopPlaceRef',
       },
       passengers,
-      '2024-10-10T10:00:00.000Z',
+      '2024-10-14T09:00:00.000Z',
       undefined,
       this.via.length > 0 ? [
         {
@@ -88,13 +88,15 @@ export class LandingComponent implements OnInit {
   }
 
   buyOffer(offerId: any) {
+    this.router.navigate(['/confirmation'], {queryParams: {o: offerId}});
+
     // Makes a booking and navigates to an overview screen
-    OSDM.createBooking(offerId, passengers).then((booking: any) => {
+    /*OSDM.createBooking(offerId, passengers).then((booking: any) => {
       const bookingId = booking.booking.id;
       OSDM.fulfillBooking(bookingId).then(() => {
         this.router.navigate(['/booking'], {queryParams: {b: bookingId}});
       });
-    });
+    });*/
   }
 
   doUpdate(input: string) {
