@@ -85,10 +85,10 @@ const getJWT = async () => {
   return data.access_token;
 };
 
-getJWT().then((newToken) => {
-  sqillsJWT = newToken;
-  console.log("Sqills token setup");
-});
+// getJWT().then((newToken) => {
+//   sqillsJWT = newToken;
+//   console.log("Sqills token setup");
+// });
 
 const sqillsProxy = httpProxy
   .createProxyServer({

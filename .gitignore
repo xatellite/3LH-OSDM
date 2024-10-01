@@ -2,3 +2,4 @@
 .cert
 .secrets
 node_modules
+.idea
