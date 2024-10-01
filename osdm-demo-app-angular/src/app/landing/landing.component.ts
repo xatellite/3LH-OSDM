@@ -42,6 +42,7 @@ export class LandingComponent implements OnInit {
   destination = 'Praha hl.n.'; // Praha
   stationDataMap = new Map<string, string>();
   stations: string[] = [];
+  loading = false;
 
   ngOnInit() {
     Object.values(uicData.stops).forEach((value) => {
@@ -53,6 +54,7 @@ export class LandingComponent implements OnInit {
   tripResults: any = [];
 
   getOffers() {
+    this.loading = true;
     OSDM.searchOffers(
       {
         stopPlaceRef: this.resolveStationNameToUic(this.origin),
@@ -75,6 +77,7 @@ export class LandingComponent implements OnInit {
       ] : undefined
     ).then((offers: any) => {
       console.log(offers);
+      this.loading = false;
       this.offerResults = offers.offers;
       this.tripResults = offers.trips;
     });

@@ -1,5 +1,16 @@
 <div class="flex flex-col w-full justify-center items-center">
   <h1>Booking</h1>
   <span>Test</span>
-  <sbb-button (click)="openTicket()">Open Ticket</sbb-button>
+
+  @if (!ticketData) {
+    <p>
+      <sbb-loading-indicator
+        variant="circle"
+        size="s"
+      ></sbb-loading-indicator>
+      Payment is being processed...
+    </p>
+  } @else {
+    <sbb-button (click)="openTicket()">Open Ticket</sbb-button>
+  }
 </div>

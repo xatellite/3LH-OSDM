@@ -38,13 +38,18 @@
         }
       </sbb-autocomplete>
     </sbb-form-field>
-    <sbb-button (click)="getOffers()">Search</sbb-button>
+    <sbb-button (click)="getOffers()" [disabled]="loading">
+      @if (loading) {
+        <sbb-loading-indicator variant="circle" size="s"></sbb-loading-indicator>
+      }
+      Search
+    </sbb-button>
   </div>
   <div class="flex flex-col">
     @for (trip of tripResults; track trip?.id) {
       <sbb-card type="submit" size="m" color="white">
         <div>
-          <strong>Duration:</strong> {{ trip.duration |duration}}<br>
+          <strong>Duration:</strong> {{ trip.duration | duration }}<br>
           <strong>Start Time:</strong> {{ trip.startTime | date: 'dd.MM HH:mm' }}<br>
           <strong>End Time:</strong> {{ trip.endTime | date: 'dd.MM HH:mm' }}<br>
           <strong>Transfers:</strong> {{ trip.transfers }}<br>
