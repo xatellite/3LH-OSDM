@@ -9,6 +9,7 @@ import '@sbb-esta/lyne-elements/autocomplete.js';
 import {FormsModule} from '@angular/forms';
 import {CurrencyPipe, DatePipe, JsonPipe} from "@angular/common";
 import * as uicData from '../../../assets/uic.json';
+import { DurationPipe } from "../duration.pipe";
 
 const passengers = [
   {
@@ -27,7 +28,7 @@ const passengers = [
 @Component({
   selector: 'app-landing',
   standalone: true,
-  imports: [FormsModule, JsonPipe, DatePipe, CurrencyPipe],
+  imports: [FormsModule, JsonPipe, DatePipe, CurrencyPipe, DurationPipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.css',
