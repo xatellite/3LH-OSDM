@@ -14,6 +14,15 @@
       />
       <sbb-form-field-clear></sbb-form-field-clear>
     </sbb-form-field>
+    <sbb-form-field>
+      <label>Via</label>
+      <input
+        type="text"
+        placeholder="Input placeholder"
+        [(ngModel)]="via"
+      />
+      <sbb-form-field-clear></sbb-form-field-clear>
+    </sbb-form-field>
     <sbb-button (click)="getOffers()">Search</sbb-button>
   </div>
   <div class="flex flex-col">

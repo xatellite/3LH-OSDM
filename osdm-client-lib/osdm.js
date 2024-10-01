@@ -50,7 +50,8 @@ export const searchOffers = async (
   destination,
   anonymousPassengerSpecifications,
   departureTime = undefined,
-  arrivalTime = undefined
+  arrivalTime = undefined,
+  vias = undefined
 ) => {
   const response = await fetch(`${SANDBOX_URL}/offers`, {
     method: "POST",
@@ -64,6 +65,7 @@ export const searchOffers = async (
         arrivalTime,
         origin,
         destination,
+        vias
       },
       objectType: "OfferCollectionRequest",
     }),

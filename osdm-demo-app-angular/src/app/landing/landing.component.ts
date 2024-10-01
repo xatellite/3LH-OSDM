@@ -4,6 +4,7 @@ import OSDM from 'osdm-client-lib';
 import '@sbb-esta/lyne-elements/button.js';
 import '@sbb-esta/lyne-elements/form-field.js';
 import { FormsModule } from '@angular/forms';
+import { JsonPipe } from "@angular/common";
 
 const passengers = [
   {
@@ -22,15 +23,16 @@ const passengers = [
 @Component({
   selector: 'app-landing',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, JsonPipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.css',
 })
 export class LandingComponent {
   constructor(private router: Router) {}
-  origin = '';
-  destination = '';
+  origin = 'urn:uic:stn:8814001'; // Brussels
+  via = 'urn:uic:stn:8503000'; // Zurich
+  destination = 'urn:uic:stn:8503000'; // Praha
 
   offerResults: any = [];
   tripResults: any = [];
@@ -46,7 +48,16 @@ export class LandingComponent {
         objectType: 'StopPlaceRef',
       },
       passengers,
-      '2024-10-10T10:00:00Z'
+      '2024-10-10T10:00:00Z',
+      undefined,
+      [
+        {
+          viaPlace:  {
+            stopPlaceRef: this.via,
+            objectType: 'StopPlaceRef',
+          }
+        }
+      ]
     ).then((offers: any) => {
       console.log(offers);
       this.offerResults = offers.offers;
