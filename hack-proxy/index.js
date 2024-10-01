@@ -102,6 +102,10 @@ const sqillsProxy = httpProxy
   .listen(8010);
 
 sqillsProxy.on("proxyReq", function (proxyReq, req, res, options) {
+  getJWT().then((newToken) => {
+    sqillsJWT = newToken;
+    console.log("Sqills token setup");
+  }); // This is of course not used on this request, but the next.. a very dirty fix (:
   proxyReq.setHeader("Authorization", `Bearer ${sqillsJWT}`);
 });
 
@@ -146,6 +150,10 @@ const biletoProxy = httpProxy
   .listen(8011);
 
 biletoProxy.on("proxyReq", function (proxyReq, req, res, options) {
+  getBiletoJWT().then((newToken) => {
+    biletoJWT = newToken;
+    console.log("Bileto token setup");
+  }); // This is of course not used on this request, but the next.. a very dirty fix (: would be nice if this existed: https://stackoverflow.com/questions/43978286/node-http-proxy-async-modification-of-request-body
   proxyReq.setHeader("Authorization", `Bearer ${biletoJWT}`);
   proxyReq.setHeader("Requestor", process.env.REQUESTOR);
 });
