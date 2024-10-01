@@ -1,7 +1,4 @@
 <div class="flex flex-col w-full justify-center items-center">
-  <h1>Booking</h1>
-  <span>Test</span>
-
   @if (!ticketData) {
     <p>
       <sbb-loading-indicator
@@ -11,6 +8,51 @@
       Payment is being processed...
     </p>
   } @else {
+    <sbb-card>
+      <h1 class="text-2xl font-bold mb-4">Overview</h1>
+
+      <div class="mb-4">
+        <h2 class="text-xl font-semibold">Booking ID: {{ ticketData.booking.id }}</h2>
+      </div>
+
+      <div class="mb-4">
+        <h3 class="text-lg font-semibold">Passenger Details</h3>
+        <ul class="list-disc pl-5">
+          <li>{{ ticketData.booking.passengers[0].detail.firstName }} {{ ticketData.booking.passengers[0].detail.lastName }}</li>
+          <li>Email: {{ ticketData.booking.passengers[0].detail.email }}</li>
+          <li>Phone: {{ ticketData.booking.passengers[0].detail.phoneNumber }}</li>
+          <li>Age: {{ ticketData.booking.passengers[0].age }}</li>
+        </ul>
+      </div>
+
+      <div class="mb-4">
+        <h3 class="text-lg font-semibold">Price Overview</h3>
+        <p class="font-bold">
+          {{ ticketData.booking.confirmedPrice.amount / 100 | currency:ticketData.booking.confirmedPrice.currency:'symbol':'1.2-2' }}
+        </p>
+      </div>
+
+      <div class="mb-4">
+        <h3 class="text-lg font-semibold">Trips</h3>
+        <ul>
+          <li>Duration: {{ ticketData.booking.trips[0].duration | duration }}</li>
+          <li>From: {{ ticketData.booking.trips[0].legs[0].timedLeg.start.stopPlaceName }}
+            To: {{ ticketData.booking.trips[0].legs[ticketData.booking.trips[0].legs.length - 1].timedLeg.end.stopPlaceName }}
+          </li>
+        </ul>
+      </div>
+
+      <div class="mb-4">
+        <h3 class="text-lg font-semibold">Fulfillments</h3>
+        <ul>
+          @for (fulfillment of ticketData.booking.fulfillments; track fulfillment.id) {
+            <li>Control Number: {{ fulfillment.controlNumber }} <a
+              href="{{ fulfillment.fulfillmentDocuments[0].downloadLink }}"
+              class="text-blue-500 hover:underline">Download Ticket</a></li>
+          }
+        </ul>
+      </div>
+    </sbb-card>
     <sbb-button (click)="openTicket()">Open Ticket</sbb-button>
   }
 </div>

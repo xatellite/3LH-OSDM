@@ -3,11 +3,18 @@ import { ActivatedRoute } from '@angular/router';
 import OSDM from 'osdm-client-lib';
 import '@sbb-esta/lyne-elements/button.js';
 import '@sbb-esta/lyne-elements/loading-indicator.js';
+import '@sbb-esta/lyne-elements/card.js';
+import { CurrencyPipe, DatePipe } from "@angular/common";
+import { DurationPipe } from "../duration.pipe";
 
 @Component({
   selector: 'app-booking',
   standalone: true,
-  imports: [],
+  imports: [
+    DatePipe,
+    CurrencyPipe,
+    DurationPipe
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './booking.component.html',
   styleUrl: './booking.component.css',
