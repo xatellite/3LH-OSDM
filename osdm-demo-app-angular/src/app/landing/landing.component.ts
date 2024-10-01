@@ -1,10 +1,14 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
-import { Router } from '@angular/router';
+import {Component, CUSTOM_ELEMENTS_SCHEMA, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import OSDM from 'osdm-client-lib';
 import '@sbb-esta/lyne-elements/button.js';
 import '@sbb-esta/lyne-elements/form-field.js';
-import { FormsModule } from '@angular/forms';
+import '@sbb-esta/lyne-elements/select.js';
+import '@sbb-esta/lyne-elements/option.js';
+import '@sbb-esta/lyne-elements/autocomplete.js';
+import {FormsModule} from '@angular/forms';
 import {CurrencyPipe, DatePipe, JsonPipe} from "@angular/common";
+import * as uicData from '../../../assets/uic.json';
 
 const passengers = [
   {
@@ -28,11 +32,21 @@ const passengers = [
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.css',
 })
-export class LandingComponent {
-  constructor(private router: Router) {}
-  origin = 'urn:uic:stn:8814001'; // Brussels
-  via = 'urn:uic:stn:8503000'; // Zurich
-  destination = 'urn:uic:stn:5457076'; // Praha
+export class LandingComponent implements OnInit {
+  constructor(private router: Router) {
+  }
+
+  origin = 'Bruxelles-Midi'; // Brussels
+  via = 'Zürich HB'; // Zurich
+  destination = 'Praha hl.n.'; // Praha
+  stationDataMap = new Map<string, string>();
+  stations: string[] = [];
+
+  ngOnInit() {
+    Object.values(uicData.stops).forEach((value) => {
+      this.stationDataMap.set(value.default_name, value.id);
+    });
+  }
 
   offerResults: any = [];
   tripResults: any = [];
@@ -40,24 +54,24 @@ export class LandingComponent {
   getOffers() {
     OSDM.searchOffers(
       {
-        stopPlaceRef: this.origin,
+        stopPlaceRef: this.resolveStationNameToUic(this.origin),
         objectType: 'StopPlaceRef',
       },
       {
-        stopPlaceRef: this.destination,
+        stopPlaceRef: this.resolveStationNameToUic(this.destination),
         objectType: 'StopPlaceRef',
       },
       passengers,
-      '2024-10-14T10:00:00.000Z',
+      '2024-10-10T10:00:00.000Z',
       undefined,
-      [
+      this.via.length > 0 ? [
         {
-          viaPlace:  {
-            stopPlaceRef: this.via,
+          viaPlace: {
+            stopPlaceRef: this.resolveStationNameToUic(this.via),
             objectType: 'StopPlaceRef',
           }
         }
-      ]
+      ] : undefined
     ).then((offers: any) => {
       console.log(offers);
       this.offerResults = offers.offers;
@@ -65,13 +79,25 @@ export class LandingComponent {
     });
   }
 
+  resolveStationNameToUic(name: any) {
+    return "urn:uic:stn:" + this.stationDataMap.get(name);
+  }
+
   buyOffer(offerId: any) {
     // Makes a booking and navigates to an overview screen
     OSDM.createBooking(offerId, passengers).then((booking: any) => {
       const bookingId = booking.booking.id;
       OSDM.fulfillBooking(bookingId).then(() => {
-        this.router.navigate(['/booking'], { queryParams: { b: bookingId } });
+        this.router.navigate(['/booking'], {queryParams: {b: bookingId}});
       });
     });
+  }
+
+  doUpdate(input: string) {
+    if (input.length >= 2) {
+      this.stations = Array.from(this.stationDataMap.keys()).filter((key) => key.startsWith(input)).slice(0,10);
+    } else {
+      this.stations = [];
+    }
   }
 }

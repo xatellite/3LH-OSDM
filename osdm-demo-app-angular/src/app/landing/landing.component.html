@@ -1,44 +1,59 @@
 <div class="flex flex-col">
   <div class="flex gap-5 items-center w-full p-10 justify-center">
-    <sbb-form-field>
+    <sbb-form-field data-testid="form-field">
       <label>Origin</label>
-      <input type="text" placeholder="Input placeholder" [(ngModel)]="origin" />
-      <sbb-form-field-clear></sbb-form-field-clear>
+      <input (keyup)="doUpdate(origin)" (focusout)="doUpdate(origin)" (mouseup)="doUpdate(origin)"
+             [(ngModel)]="origin"/>
+      <sbb-autocomplete>
+        @for (station of stations; track station) {
+          <sbb-option value="{{ station }}">{{ station }}</sbb-option>
+        }
+      </sbb-autocomplete>
     </sbb-form-field>
     <sbb-form-field>
       <label>Destination</label>
       <input
+        (keyup)="doUpdate(destination)" (focusout)="doUpdate(destination)" (mouseup)="doUpdate(destination)"
         type="text"
         placeholder="Input placeholder"
         [(ngModel)]="destination"
       />
-      <sbb-form-field-clear></sbb-form-field-clear>
+      <sbb-autocomplete>
+        @for (station of stations; track station) {
+          <sbb-option value="{{ station }}">{{ station }}</sbb-option>
+        }
+      </sbb-autocomplete>
     </sbb-form-field>
     <sbb-form-field>
       <label>Via</label>
       <input
+        (keyup)="doUpdate(via)" (focusout)="doUpdate(via)" (mouseup)="doUpdate(via)"
         type="text"
         placeholder="Input placeholder"
         [(ngModel)]="via"
       />
-      <sbb-form-field-clear></sbb-form-field-clear>
+      <sbb-autocomplete>
+        @for (station of stations; track station) {
+          <sbb-option value="{{ station }}">{{ station }}</sbb-option>
+        }
+      </sbb-autocomplete>
     </sbb-form-field>
     <sbb-button (click)="getOffers()">Search</sbb-button>
   </div>
   <div class="flex flex-col">
     @for (trip of tripResults; track trip?.id) {
-    <sbb-card type="submit" form="buy" value="trip" size="m" color="white">
-      {{ trip?.startTime | date:'dd.MM HH:mm' }} - {{ trip?.endTime | date:'dd.MM HH:mm' }}
-      <div class="flex flex-col">
-        @for (offer of offerResults; track offer.offerId) {
-        <sbb-option value="Value 1" icon-name="ticket">
-          {{ offer.offerSummary.minimalPrice.amount / 100 | currency:offer.offerSummary.minimalPrice.currency:'symbol':'1.2-2' }} {{ offer.offerSummary.overallTravelClass }}
+      <sbb-card type="submit" form="buy" value="trip" size="m" color="white">
+        {{ trip?.startTime | date:'dd.MM HH:mm' }} - {{ trip?.endTime | date:'dd.MM HH:mm' }}
+        <div class="flex flex-col">
+          @for (offer of offerResults; track offer.offerId) {
+            <sbb-option value="Value 1" icon-name="ticket">
+              {{ offer.offerSummary.minimalPrice.amount / 100 | currency:offer.offerSummary.minimalPrice.currency:'symbol':'1.2-2' }} {{ offer.offerSummary.overallTravelClass }}
 
-          <sbb-button (click)="buyOffer(offer.offerId)"> Buy </sbb-button>
-        </sbb-option>
-        }
-      </div>
-    </sbb-card>
+              <sbb-button (click)="buyOffer(offer.offerId)"> Buy</sbb-button>
+            </sbb-option>
+          }
+        </div>
+      </sbb-card>
     }
   </div>
 </div>
