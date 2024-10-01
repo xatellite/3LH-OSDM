@@ -1,0 +1,14 @@
+<div class="flex flex-col">
+  @for (offer of offers; track offer.offerId) {
+    <sbb-option value="Value 1" icon-name="tickets-class-medium">
+      {{ offer.offerSummary.minimalPrice.amount / 100 | currency:offer.offerSummary.minimalPrice.currency:'symbol':'1.2-2' }} {{ offer.offerSummary.overallTravelClass }}
+      <div class="offer-card">
+        <p><strong>Minimal Price:</strong> {{ offer.offerSummary.minimalPrice.amount / 100 }} {{ offer.offerSummary.minimalPrice.currency }}</p>
+        <p><strong>Overall Service Class:</strong> {{ offer.offerSummary.overallServiceClass.name }} ({{ offer.offerSummary.overallServiceClass.type }})</p>
+        <p><strong>Overall Travel Class:</strong> {{ offer.offerSummary.overallTravelClass }}</p>
+        <p><strong>Flexibility:</strong> {{ offer.offerSummary.overallFlexibility }}</p>
+      </div>
+      <sbb-button (click)="buyOffer(offer.offerId)"> Buy</sbb-button>
+    </sbb-option>
+  }
+</div>

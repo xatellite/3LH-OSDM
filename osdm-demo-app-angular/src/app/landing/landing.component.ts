@@ -1,15 +1,16 @@
-import {Component, CUSTOM_ELEMENTS_SCHEMA, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import OSDM from 'osdm-client-lib';
 import '@sbb-esta/lyne-elements/button.js';
 import '@sbb-esta/lyne-elements/form-field.js';
 import '@sbb-esta/lyne-elements/select.js';
 import '@sbb-esta/lyne-elements/option.js';
 import '@sbb-esta/lyne-elements/autocomplete.js';
-import {FormsModule} from '@angular/forms';
-import {CurrencyPipe, DatePipe, JsonPipe} from "@angular/common";
+import { FormsModule } from '@angular/forms';
+import { CurrencyPipe, DatePipe, JsonPipe } from "@angular/common";
 import * as uicData from '../../../assets/uic.json';
 import { DurationPipe } from "../duration.pipe";
+import { OffersComponent } from "../offers/offers.component";
 
 const passengers = [
   {
@@ -28,7 +29,7 @@ const passengers = [
 @Component({
   selector: 'app-landing',
   standalone: true,
-  imports: [FormsModule, JsonPipe, DatePipe, CurrencyPipe, DurationPipe],
+  imports: [FormsModule, JsonPipe, DatePipe, CurrencyPipe, DurationPipe, OffersComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.css',
@@ -43,6 +44,8 @@ export class LandingComponent implements OnInit {
   stationDataMap = new Map<string, string>();
   stations: string[] = [];
   loading = false;
+  selectedTrip: any;
+  selectedOffers: any;
 
   ngOnInit() {
     Object.values(uicData.stops).forEach((value) => {
@@ -87,23 +90,15 @@ export class LandingComponent implements OnInit {
     return "urn:uic:stn:" + this.stationDataMap.get(name);
   }
 
-  buyOffer(offerId: any) {
-    this.router.navigate(['/confirmation'], {queryParams: {o: offerId}});
-
-    // Makes a booking and navigates to an overview screen
-    /*OSDM.createBooking(offerId, passengers).then((booking: any) => {
-      const bookingId = booking.booking.id;
-      OSDM.fulfillBooking(bookingId).then(() => {
-        this.router.navigate(['/booking'], {queryParams: {b: bookingId}});
-      });
-    });*/
-  }
-
   doUpdate(input: string) {
     if (input.length >= 2) {
-      this.stations = Array.from(this.stationDataMap.keys()).filter((key) => key.startsWith(input)).slice(0,10);
+      this.stations = Array.from(this.stationDataMap.keys()).filter((key) => key.startsWith(input)).slice(0, 10);
     } else {
       this.stations = [];
     }
+  }
+
+  selectTrip(trip: any) {
+    this.selectedOffers = this.offerResults.filter((offer: any) => offer.tripCoverage.coveredTripId === trip.id);
   }
 }

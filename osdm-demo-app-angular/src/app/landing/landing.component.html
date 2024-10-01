@@ -13,7 +13,8 @@
     <sbb-form-field>
       <label>Destination</label>
       <input
-        (keyup)="doUpdate(destination)" (focusout)="doUpdate(destination)" (mouseup)="doUpdate(destination)"
+        (keyup)="doUpdate(destination)" (focusout)="doUpdate(destination)"
+        (mouseup)="doUpdate(destination)"
         type="text"
         placeholder="Input placeholder"
         [(ngModel)]="destination"
@@ -45,30 +46,22 @@
       Search
     </sbb-button>
   </div>
-  <div class="flex flex-col">
-    @for (trip of tripResults; track trip?.id) {
-      <sbb-card type="submit" size="m" color="white">
-        <div>
-          <strong>Duration:</strong> {{ trip.duration | duration }}<br>
-          <strong>Start Time:</strong> {{ trip.startTime | date: 'dd.MM HH:mm' }}<br>
-          <strong>End Time:</strong> {{ trip.endTime | date: 'dd.MM HH:mm' }}<br>
-          <strong>Transfers:</strong> {{ trip.transfers }}<br>
-        </div>
-        <div class="flex flex-col">
-          @for (offer of offerResults; track offer.offerId) {
-            <sbb-option value="Value 1" icon-name="tickets-class-medium">
-              {{ offer.offerSummary.minimalPrice.amount / 100 | currency:offer.offerSummary.minimalPrice.currency:'symbol':'1.2-2' }} {{ offer.offerSummary.overallTravelClass }}
-              <div class="offer-card">
-                <p><strong>Minimal Price:</strong> {{ offer.offerSummary.minimalPrice.amount / 100 }} {{ offer.offerSummary.minimalPrice.currency }}</p>
-                <p><strong>Overall Service Class:</strong> {{ offer.offerSummary.overallServiceClass.name }} ({{ offer.offerSummary.overallServiceClass.type }})</p>
-                <p><strong>Overall Travel Class:</strong> {{ offer.offerSummary.overallTravelClass }}</p>
-                <p><strong>Flexibility:</strong> {{ offer.offerSummary.overallFlexibility }}</p>
-              </div>
-              <sbb-button (click)="buyOffer(offer.offerId)"> Buy</sbb-button>
-            </sbb-option>
-          }
-        </div>
-      </sbb-card>
-    }
+  <div class="flex ">
+    <div class="w-1/2">
+      @for (trip of tripResults; track trip?.id) {
+        <sbb-card type="submit" size="m" color="white">
+          <div>
+            <strong>Duration:</strong> {{ trip.duration | duration }}<br>
+            <strong>Start Time:</strong> {{ trip.startTime | date: 'dd.MM HH:mm' }}<br>
+            <strong>End Time:</strong> {{ trip.endTime | date: 'dd.MM HH:mm' }}<br>
+            <strong>Transfers:</strong> {{ trip.transfers }}<br>
+            <sbb-button (click)="selectTrip(trip)">Book</sbb-button>
+          </div>
+        </sbb-card>
+      }
+    </div>
+    <div class="w-1/2">
+      <app-offers [offers]="selectedOffers"></app-offers>
+    </div>
   </div>
 </div>
