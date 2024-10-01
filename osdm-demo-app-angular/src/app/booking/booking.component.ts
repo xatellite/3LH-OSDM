@@ -2,6 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import OSDM from 'osdm-client-lib';
 import '@sbb-esta/lyne-elements/button.js';
+import { baseUrl } from '../../enviroment';
 
 @Component({
   selector: 'app-booking',
@@ -17,7 +18,7 @@ export class BookingComponent {
   ticketData = {};
 
   fetchFulfillment(bookingId: any) {
-    OSDM.getBooking(bookingId)
+    OSDM.getBooking(baseUrl, bookingId)
       .then((booking: any) => {
         if (!booking.booking?.fulfillments) {
           setTimeout(() => this.fetchFulfillment(bookingId), 2000);

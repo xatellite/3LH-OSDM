@@ -4,6 +4,7 @@ import OSDM from 'osdm-client-lib';
 import '@sbb-esta/lyne-elements/button.js';
 import '@sbb-esta/lyne-elements/form-field.js';
 import { FormsModule } from '@angular/forms';
+import { baseUrl } from '../../enviroment';
 
 const passengers = [
   {
@@ -37,6 +38,7 @@ export class LandingComponent {
 
   getOffers() {
     OSDM.searchOffers(
+      baseUrl,
       {
         stopPlaceRef: this.origin,
         objectType: 'StopPlaceRef',
@@ -56,9 +58,9 @@ export class LandingComponent {
 
   buyOffer(offerId: any) {
     // Makes a booking and navigates to an overview screen
-    OSDM.createBooking(offerId, passengers).then((booking: any) => {
+    OSDM.createBooking(baseUrl, offerId, passengers).then((booking: any) => {
       const bookingId = booking.booking.id;
-      OSDM.fulfillBooking(bookingId).then(() => {
+      OSDM.fulfillBooking(baseUrl, bookingId).then(() => {
         this.router.navigate(['/booking'], { queryParams: { b: bookingId } });
       });
     });
