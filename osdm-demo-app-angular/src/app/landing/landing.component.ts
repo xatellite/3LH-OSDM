@@ -43,9 +43,9 @@ export class LandingComponent implements OnInit {
   constructor(private router: Router) {
   }
 
-  origin = ''; // 'Zürich HB';
-  via = ''; // 'München Hbf';
-  destination = '';// 'Praha hl.n.';
+  origin = 'Zürich HB';
+  via = 'München Hbf';
+  destination = 'Praha hl.n.';
   stationDataMap = new Map<string, string>();
   stations: string[] = [];
   loading = false;
