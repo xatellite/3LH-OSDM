@@ -43,9 +43,9 @@ export class LandingComponent implements OnInit {
   constructor(private router: Router) {
   }
 
-  origin = 'Zürich HB'; // Brussels
-  via = 'München Hbf'; // Zurich
-  destination = 'Praha hl.n.'; // Praha
+  origin = ''; // 'Zürich HB';
+  via = ''; // 'München Hbf';
+  destination = '';// 'Praha hl.n.';
   stationDataMap = new Map<string, string>();
   stations: string[] = [];
   loading = false;
@@ -174,7 +174,7 @@ export class LandingComponent implements OnInit {
 
   doUpdate(input: string) {
     if (input.length >= 2) {
-      this.stations = Array.from(this.stationDataMap.keys()).filter((key) => key.startsWith(input)).slice(0, 10);
+      this.stations = Array.from(this.stationDataMap.keys()).filter((key) => key.toLowerCase().startsWith(input.toLowerCase())).slice(0, 10);
     } else {
       this.stations = [];
     }

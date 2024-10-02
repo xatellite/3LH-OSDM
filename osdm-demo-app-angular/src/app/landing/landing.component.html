@@ -23,7 +23,6 @@
         (focusout)="doUpdate(destination)"
         (mouseup)="doUpdate(destination)"
         type="text"
-        placeholder="Input placeholder"
         [(ngModel)]="destination"
       />
       <sbb-autocomplete>
@@ -39,7 +38,6 @@
         (focusout)="doUpdate(via)"
         (mouseup)="doUpdate(via)"
         type="text"
-        placeholder="Input placeholder"
         [(ngModel)]="via"
       />
       <sbb-autocomplete>
@@ -88,9 +86,6 @@
           ></sbb-pearl-chain-time>
           <strong>{{ pearlArrivalMap.get(trip.id) | date : "HH:mm" }}</strong>
         </div>
-        <!--                    <span>{{trip.legs[0].timedLeg.start.serviceDeparture.timetabledTime}}</span>-->
-        <!--                    [arrival-time]="trip.legs[0].timedLeg.start.serviceDeparture.timetabledTime"-->
-        <!--                      departure-time="2022-12-11T12:11:00"-->
       </sbb-card>
       }
     </div>
