@@ -26,8 +26,14 @@
           size="l"
         ></sbb-journey-header>
         {{ trip.startTime | date: 'EE. dd.MM.yyyy' }}, {{ trip.duration | duration }}<br>
-        <b>{{ trip.startTime | date: 'HH:mm' }}</b>
-        <b class="end-time">{{ trip.endTime | date: 'HH:mm' }}</b>
+
+        <div class="flex w-full">
+          <strong>{{ trip.startTime | date: 'HH:mm' }}</strong>
+          <sbb-pearl-chain-time class="flex-1"
+                                [legs]="legs"
+          ></sbb-pearl-chain-time>
+          <strong>{{ trip.endTime | date: 'HH:mm' }}</strong>
+        </div>
       </sbb-card>
 
       @for (leg of trip.legs; track leg.id) {

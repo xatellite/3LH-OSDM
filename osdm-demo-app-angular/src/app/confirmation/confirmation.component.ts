@@ -45,6 +45,7 @@ export class ConfirmationComponent implements OnInit {
   booking?: any;
   loading = false;
   useMockData = false;
+  legs : any;
 
   confirm() {
     this.loading = true;
@@ -62,12 +63,43 @@ export class ConfirmationComponent implements OnInit {
     if  (this.useMockData) {
       this.bookingId = mockData.booking.id;
       this.booking = mockData;
+      this.generateLeg(this.booking);
     } else {
       OSDM.createBooking((this.route.queryParams as any).value.o, passengers).then((booking: any) => {
         this.booking = booking;
-
         this.bookingId = booking.booking.id;
+        this.generateLeg(this.booking);
       });
     }
+  }
+
+  generateLeg(booking : any) {
+    var legs = [];
+    for (var i = 0; i < booking.booking.trips[0].legs.length; i++) {
+      if (booking.booking.trips[0].legs[i].timedLeg == null) {
+        continue;
+      }
+
+      legs.push({
+        __typename: "PTRideLeg",
+        arrival: {
+          time: booking.booking.trips[0].legs[i].timedLeg.start.serviceDeparture.timetabledTime
+        },
+        departure: {
+          time: booking.booking.trips[0].legs[i].timedLeg.end.serviceArrival.timetabledTime
+        },
+        serviceJourney: {
+          quayTypeName: "platform",
+          quayTypeShortName: "Pl.",
+          serviceAlteration: {
+            cancelled: false,
+            delayText: "string",
+            reachable: true,
+            unplannedStopPointsText: ""
+          }
+        }
+      });
+    }
+    this.legs = legs;
   }
 }
