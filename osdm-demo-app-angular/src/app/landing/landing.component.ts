@@ -6,6 +6,10 @@ import '@sbb-esta/lyne-elements/form-field.js';
 import '@sbb-esta/lyne-elements/select.js';
 import '@sbb-esta/lyne-elements/option.js';
 import '@sbb-esta/lyne-elements/autocomplete.js';
+import '@sbb-esta/lyne-elements-experimental/pearl-chain-time.js';
+import '@sbb-esta/lyne-elements-experimental/pearl-chain.js';
+import '@sbb-esta/lyne-elements-experimental/pearl-chain-vertical.js';
+import '@sbb-esta/lyne-elements-experimental/journey-summary.js';
 import { FormsModule } from '@angular/forms';
 import {CurrencyPipe, DatePipe, JsonPipe, NgOptimizedImage} from "@angular/common";
 import * as uicData from '../../../assets/uic.json';
@@ -49,6 +53,10 @@ export class LandingComponent implements OnInit {
   selectedTrip?: string;
   useMockData = false;
 
+  pearlMap = new Map<string, any>();
+  pearlDepartureMap = new Map<string, any>();
+  pearlArrivalMap = new Map<string, any>();
+
   imageSrc = "/assets/team_1.jpg";
 
   ngOnInit() {
@@ -64,6 +72,60 @@ export class LandingComponent implements OnInit {
   offerResults: any = [];
   tripResults: any = [];
   showEasterEgg = false;
+
+
+  legs: any[] = [
+    {
+      __typename: "PTRideLeg",
+      arrival: {
+        time: "2022-12-11T12:13:00+01:00"
+      },
+      departure: {
+        time: "2022-12-07T12:11:00+01:00"
+      },
+      serviceJourney: {
+        quayTypeName: "platform",
+        quayTypeShortName: "Pl.",
+        serviceAlteration: {
+          cancelled: false,
+          delayText: "string",
+          reachable: true,
+          unplannedStopPointsText: ""
+        }
+      }
+    },
+    {
+      __typename: "PTRideLeg",
+      arrival: {
+        time: "2022-12-11T12:13:00+01:00"
+      },
+      departure: {
+        time: "2022-12-07T12:11:00+01:00"
+      },
+      serviceJourney: {
+        quayTypeName: "platform",
+        quayTypeShortName: "Pl.",
+        serviceAlteration: {
+          cancelled: false,
+          delayText: "string",
+          reachable: true,
+          unplannedStopPointsText: ""
+        }
+      }
+    }
+  ];
+  now = new Date();
+
+  trip = {
+    arrival: "arrival",
+    departure: "departure",
+    destination: "destination",
+    duration: 0,
+    legs: this.legs,
+    origin: "origin",
+    vias: ["via"]
+
+  }
 
   getOffers() {
     if (this.origin === this.destination) {
@@ -98,6 +160,11 @@ export class LandingComponent implements OnInit {
       this.loading = false;
       this.offerResults = offers.offers;
       this.tripResults = offers.trips;
+
+      this.tripResults.forEach((trip: any) => {
+        this.mapLegs(trip);
+      });
+
     });
   }
 
@@ -125,4 +192,73 @@ export class LandingComponent implements OnInit {
       this.imageSrc = "/assets/team_1.jpg";
     }
   }
+
+  mapLegs(trip: any) {
+    var legs = [];
+    for (var i = 0; i < trip.legs.length; i++) {
+      if (trip.legs[i].timedLeg == null) {
+        continue;
+      }
+
+      legs.push({
+        __typename: "PTRideLeg",
+        arrival: {
+          //time: "2022-12-11T12:13:00+01:00"
+          time: trip.legs[i].timedLeg.start.serviceDeparture.timetabledTime
+        },
+        departure: {
+          time: trip.legs[i].timedLeg.end.serviceArrival.timetabledTime
+        },
+        serviceJourney: {
+          quayTypeName: "platform",
+          quayTypeShortName: "Pl.",
+          serviceAlteration: {
+            cancelled: false,
+            delayText: "string",
+            reachable: true,
+            unplannedStopPointsText: ""
+          }
+        }
+      });
+    }
+    this.pearlMap.set(trip.id, legs);
+    this.pearlDepartureMap.set(trip.id, trip.legs[0].timedLeg.start.serviceDeparture.timetabledTime);
+    console.log(this.pearlDepartureMap.get(trip.id));
+    this.pearlArrivalMap.set(trip.id, trip.legs[trip.legs.length-1].timedLeg.end.serviceArrival.timetabledTime);
+    console.log(this.pearlArrivalMap.get(trip.id));
+
+    // console.log('Abfahrt: ',trip.legs[0].timedLeg.start.serviceDeparture.timetabledTime)
+    // console.log(trip.legs.filter((leg: any) => leg.timedLeg))
+    // const res = trip.legs.filter((leg: any) => leg.timedLeg)
+    //   .map((leg: any) => ({
+    //     __typename: "PTRideLeg",
+    //     arrival: {
+    //       time: leg.timedLeg.end.serviceArrival.timetabledTime
+    //     },
+    //   }));
+// console.log(res);
+    // return trip.legs
+    //   // .filter((leg: any) => leg.timedLeg)
+    //   .map((leg: any) => ({
+    //   __typename: "PTRideLeg",
+    //   arrival: {
+    //     time: leg.timedLeg.end.serviceArrival.timetabledTime
+    //   },
+    //   departure: {
+    //     time: leg.timedLeg.start.serviceDeparture.timetabledTime
+    //   },
+    //   serviceJourney: {
+    //     quayTypeName: "platform", // Assuming static value as it's not in the input
+    //     quayTypeShortName: "Pl.", // Assuming static value as it's not in the input
+    //     serviceAlteration: {
+    //       cancelled: false, // Assuming static value as it's not in the input
+    //       delayText: "string", // Assuming static value as it's not in the input
+    //       reachable: true, // Assuming static value as it's not in the input
+    //       unplannedStopPointsText: "" // Assuming static value as it's not in the input
+    //     }
+    //   }
+    // }));
+  }
+
+  protected readonly JSON = JSON;
 }
