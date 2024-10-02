@@ -17,3 +17,7 @@ sbb-card {
   width: 50%;
   margin-bottom: var(--sbb-spacing-fixed-1x);
 }
+
+.price {
+  float: right;
+}

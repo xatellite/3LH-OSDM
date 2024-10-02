@@ -13,7 +13,8 @@
     <br>
     <sbb-card>
       <h1 class="text-2xl font-bold mb-4">Overview</h1>
-      <b>Booking ID: {{ bookingId }}</b>
+      Booking ID: {{ bookingId }}
+      <b class="price">{{ booking.booking.provisionalPrice.amount / 100 | currency:booking.booking.provisionalPrice.currency:'symbol':'1.2-2' }}</b>
     </sbb-card>
 
     @for (trip of booking.booking.trips; track trip.id) {
