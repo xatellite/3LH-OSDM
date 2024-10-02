@@ -4,3 +4,16 @@
   top: calc(50% - 1rem);
   text-align: center;
 }
+
+.end-time {
+  float: right;
+}
+
+sbb-icon {
+  vertical-align: bottom;
+}
+
+sbb-card {
+  width: 50%;
+  margin-bottom: var(--sbb-spacing-fixed-1x);
+}
