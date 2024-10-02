@@ -1,0 +1,9 @@
+sbb-card {
+  margin-bottom: var(--sbb-spacing-fixed-1x);
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
