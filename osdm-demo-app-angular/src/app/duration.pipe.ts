@@ -12,6 +12,6 @@ export class DurationPipe implements PipeTransform {
     const hours = match[1] ? match[1].replace('H', '') : '0';
     const minutes = match[2] ? match[2].replace('M', '') : '0';
 
-    return `${hours}h ${minutes}m`;
+    return `${hours} h ${minutes} min`;
   }
 }

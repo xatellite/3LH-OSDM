@@ -7,6 +7,7 @@ import '@sbb-esta/lyne-elements/select.js';
 import '@sbb-esta/lyne-elements/option.js';
 import '@sbb-esta/lyne-elements/card.js';
 import '@sbb-esta/lyne-elements/autocomplete.js';
+import '@sbb-esta/lyne-elements/journey-header.js';
 import {FormsModule} from '@angular/forms';
 import {CurrencyPipe, DatePipe, JsonPipe} from "@angular/common";
 import {DurationPipe} from "../duration.pipe";

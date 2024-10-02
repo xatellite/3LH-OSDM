@@ -1,0 +1,6 @@
+.loading {
+  font-size: 2rem;
+  position: absolute;
+  top: calc(50% - 1rem);
+  text-align: center;
+}
