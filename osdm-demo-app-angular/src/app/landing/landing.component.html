@@ -46,7 +46,12 @@
       Search
     </sbb-button>
   </div>
-  <div class="flex flex-row gap-5 p-10">
+  @if (showEasterEgg) {
+    <div class="image-container">
+      <img [ngSrc]="imageSrc" height="766" width="1008" alt="image" (click)="updateImage()"/>
+    </div>
+  }
+  <div class="flex flex-row justify-center gap-5 p-10">
     <div class="w-1/2">
       @for (trip of tripResults; track trip?.id) {
         <sbb-card type="submit" size="m" color="white">
