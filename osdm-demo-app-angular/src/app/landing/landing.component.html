@@ -46,6 +46,11 @@
       Search
     </sbb-button>
   </div>
+  @if (showEasterEgg) {
+    <div class="image-container">
+      <img [ngSrc]="imageSrc" height="766" width="1008" alt="image" (click)="updateImage()"/>
+    </div>
+  }
   <div class="flex ">
     <div class="w-1/2">
       @for (trip of tripResults; track trip?.id) {

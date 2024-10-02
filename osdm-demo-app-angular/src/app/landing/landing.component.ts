@@ -7,7 +7,7 @@ import '@sbb-esta/lyne-elements/select.js';
 import '@sbb-esta/lyne-elements/option.js';
 import '@sbb-esta/lyne-elements/autocomplete.js';
 import { FormsModule } from '@angular/forms';
-import { CurrencyPipe, DatePipe, JsonPipe } from "@angular/common";
+import {CurrencyPipe, DatePipe, JsonPipe, NgOptimizedImage} from "@angular/common";
 import * as uicData from '../../../assets/uic.json';
 import { DurationPipe } from "../duration.pipe";
 import { OffersComponent } from "../offers/offers.component";
@@ -30,7 +30,7 @@ const passengers = [
 @Component({
   selector: 'app-landing',
   standalone: true,
-  imports: [FormsModule, JsonPipe, DatePipe, CurrencyPipe, DurationPipe, OffersComponent],
+  imports: [FormsModule, JsonPipe, DatePipe, CurrencyPipe, DurationPipe, OffersComponent, NgOptimizedImage],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.css',
@@ -48,6 +48,8 @@ export class LandingComponent implements OnInit {
   selectedOffers: any;
   useMockData = false;
 
+  imageSrc = "/assets/team_1.jpg";
+
   ngOnInit() {
     Object.values(uicData.stops).forEach((value) => {
       this.stationDataMap.set(value.default_name, value.id);
@@ -60,8 +62,15 @@ export class LandingComponent implements OnInit {
 
   offerResults: any = [];
   tripResults: any = [];
+  showEasterEgg = false;
 
   getOffers() {
+    if (this.origin === this.destination) {
+      this.showEasterEgg = true;
+      return;
+    }
+    this.showEasterEgg = false;
+
     this.loading = true;
     OSDM.searchOffers(
       {
@@ -105,5 +114,13 @@ export class LandingComponent implements OnInit {
 
   selectTrip(trip: any) {
     this.selectedOffers = this.offerResults.filter((offer: any) => offer.tripCoverage.coveredTripId === trip.id);
+  }
+
+  updateImage() {
+    if (this.imageSrc === "/assets/team_1.jpg") {
+      this.imageSrc = "/assets/team_2.jpg";
+    } else {
+      this.imageSrc = "/assets/team_1.jpg";
+    }
   }
 }
