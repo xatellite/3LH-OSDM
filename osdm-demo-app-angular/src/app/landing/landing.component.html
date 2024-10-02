@@ -60,18 +60,19 @@
 
           <div>
             <strong>Duration:</strong> {{ trip.duration | duration }}<br>
-            <strong>Start Time:</strong> {{ trip.startTime | date: 'dd.MM HH:mm' }}<br>
-            <strong>End Time:</strong> {{ trip.endTime | date: 'dd.MM HH:mm' }}<br>
             <strong>Transfers:</strong> {{ trip.transfers }}<br>
           </div>
-                    <sbb-pearl-chain-time
-                      now="1669893180"
-                      [legs]="mapLegs(trip)"
-                      departure-time="2022-12-11T12:11:00"
-                    ></sbb-pearl-chain-time>
-<!--                    <span>{{trip.legs[0].timedLeg.start.serviceDeparture.timetabledTime}}</span>-->
-<!--                    [arrival-time]="trip.legs[0].timedLeg.start.serviceDeparture.timetabledTime"-->
-<!--                      departure-time="2022-12-11T12:11:00"-->
+
+          <div class="flex w-full">
+            <strong>{{ pearlDepartureMap.get(trip.id) | date: 'HH:mm' }}</strong>
+            <sbb-pearl-chain-time class="flex-1"
+                                  [legs]="pearlMap.get(trip.id)"
+            ></sbb-pearl-chain-time>
+            <strong>{{ pearlArrivalMap.get(trip.id) | date: 'HH:mm' }}</strong>
+          </div>
+          <!--                    <span>{{trip.legs[0].timedLeg.start.serviceDeparture.timetabledTime}}</span>-->
+          <!--                    [arrival-time]="trip.legs[0].timedLeg.start.serviceDeparture.timetabledTime"-->
+          <!--                      departure-time="2022-12-11T12:11:00"-->
         </sbb-card>
       }
     </div>

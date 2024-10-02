@@ -53,6 +53,10 @@ export class LandingComponent implements OnInit {
   selectedTrip?: string;
   useMockData = false;
 
+  pearlMap = new Map<string, any>();
+  pearlDepartureMap = new Map<string, any>();
+  pearlArrivalMap = new Map<string, any>();
+
   imageSrc = "/assets/team_1.jpg";
 
   ngOnInit() {
@@ -68,6 +72,8 @@ export class LandingComponent implements OnInit {
   offerResults: any = [];
   tripResults: any = [];
   showEasterEgg = false;
+
+
   legs: any[] = [
     {
       __typename: "PTRideLeg",
@@ -154,6 +160,11 @@ export class LandingComponent implements OnInit {
       this.loading = false;
       this.offerResults = offers.offers;
       this.tripResults = offers.trips;
+
+      this.tripResults.forEach((trip: any) => {
+        this.mapLegs(trip);
+      });
+
     });
   }
 
@@ -181,8 +192,42 @@ export class LandingComponent implements OnInit {
       this.imageSrc = "/assets/team_1.jpg";
     }
   }
+
   mapLegs(trip: any) {
-    console.log('Abfahrt: ',trip.legs[0].timedLeg.start.serviceDeparture.timetabledTime)
+    var legs = [];
+    for (var i = 0; i < trip.legs.length; i++) {
+      if (trip.legs[i].timedLeg == null) {
+        continue;
+      }
+
+      legs.push({
+        __typename: "PTRideLeg",
+        arrival: {
+          //time: "2022-12-11T12:13:00+01:00"
+          time: trip.legs[i].timedLeg.start.serviceDeparture.timetabledTime
+        },
+        departure: {
+          time: trip.legs[i].timedLeg.end.serviceArrival.timetabledTime
+        },
+        serviceJourney: {
+          quayTypeName: "platform",
+          quayTypeShortName: "Pl.",
+          serviceAlteration: {
+            cancelled: false,
+            delayText: "string",
+            reachable: true,
+            unplannedStopPointsText: ""
+          }
+        }
+      });
+    }
+    this.pearlMap.set(trip.id, legs);
+    this.pearlDepartureMap.set(trip.id, trip.legs[0].timedLeg.start.serviceDeparture.timetabledTime);
+    console.log(this.pearlDepartureMap.get(trip.id));
+    this.pearlArrivalMap.set(trip.id, trip.legs[trip.legs.length-1].timedLeg.end.serviceArrival.timetabledTime);
+    console.log(this.pearlArrivalMap.get(trip.id));
+
+    // console.log('Abfahrt: ',trip.legs[0].timedLeg.start.serviceDeparture.timetabledTime)
     // console.log(trip.legs.filter((leg: any) => leg.timedLeg))
     // const res = trip.legs.filter((leg: any) => leg.timedLeg)
     //   .map((leg: any) => ({
@@ -214,4 +259,6 @@ export class LandingComponent implements OnInit {
     //   }
     // }));
   }
+
+  protected readonly JSON = JSON;
 }
