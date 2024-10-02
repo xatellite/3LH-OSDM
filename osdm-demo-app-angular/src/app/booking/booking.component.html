@@ -1,6 +1,6 @@
 <div class="flex flex-col w-full justify-center items-center">
   @if (!ticketData) {
-    <p>
+    <p class="loading">
       <sbb-loading-indicator
         variant="circle"
         size="s"
@@ -53,6 +53,5 @@
         </ul>
       </div>
     </sbb-card>
-    <sbb-button (click)="openTicket()">Open Ticket</sbb-button>
   }
 </div>
