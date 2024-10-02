@@ -1,75 +1,111 @@
 <div class="flex flex-col w-full justify-center items-center">
   @if (!bookingId) {
-    <p class="loading">
-      <sbb-loading-indicator
-        variant="circle"
-        size="l"
-        color="default"
-      ></sbb-loading-indicator>&nbsp;
-      Preparing booking...
-    </p>
+  <p class="loading">
+    <sbb-loading-indicator
+      variant="circle"
+      size="l"
+      color="default"
+    ></sbb-loading-indicator
+    >&nbsp; Preparing booking...
+  </p>
   } @else {
-    <br>
-    <br>
-    <sbb-card>
-      <h1 class="text-2xl font-bold mb-4">Overview</h1>
-      Booking ID: {{ bookingId }}
-      <b class="price">{{ booking.booking.provisionalPrice.amount / 100 | currency:booking.booking.provisionalPrice.currency:'symbol':'1.2-2' }}</b>
-    </sbb-card>
+  <br />
+  <br />
+  <sbb-card>
+    <h1 class="text-2xl font-bold mb-4">Overview</h1>
+    Booking ID: {{ bookingId }}
+    <b class="price">{{
+      booking.booking.provisionalPrice.amount / 100
+        | currency
+          : booking.booking.provisionalPrice.currency
+          : "symbol"
+          : "1.2-2"
+    }}</b>
+  </sbb-card>
 
-    @for (trip of booking.booking.trips; track trip.id) {
+  @for (trip of booking.booking.trips; track trip.id) {
 
-      <sbb-card size="m" color="white">
-        <sbb-journey-header
-          origin="{{ this.resolveStationNameFromUic(booking.booking.trips[0].legs[0].timedLeg.start.stopPlaceRef.stopPlaceRef) }}"
-          destination="{{ this.resolveStationNameFromUic(booking.booking.trips.at(-1).legs.at(-1).timedLeg.end.stopPlaceRef.stopPlaceRef) }}"
-          size="l"
-        ></sbb-journey-header>
-        {{ trip.startTime | date: 'EE. dd.MM.yyyy' }}, {{ trip.duration | duration }}<br>
+  <sbb-card size="m" color="white">
+    <sbb-journey-header
+      origin="{{
+        this.resolveStationNameFromUic(
+          booking.booking.trips[0].legs[0].timedLeg.start.stopPlaceRef
+            .stopPlaceRef
+        )
+      }}"
+      destination="{{
+        this.resolveStationNameFromUic(
+          booking.booking.trips.at(-1).legs.at(-1).timedLeg.end.stopPlaceRef
+            .stopPlaceRef
+        )
+      }}"
+      size="l"
+    ></sbb-journey-header>
+    {{ trip.startTime | date : "EE. dd.MM.yyyy" }}, {{ trip.duration | duration
+    }}<br />
 
-        <div class="flex w-full">
-          <strong>{{ trip.startTime | date: 'HH:mm' }}</strong>
-          <sbb-pearl-chain-time class="flex-1"
-                                [legs]="legs"
-          ></sbb-pearl-chain-time>
-          <strong>{{ trip.endTime | date: 'HH:mm' }}</strong>
-        </div>
-      </sbb-card>
+    <div class="flex w-full">
+      <strong>{{ trip.startTime | date : "HH:mm" }}</strong>
+      <sbb-pearl-chain-time class="flex-1" [legs]="legs"></sbb-pearl-chain-time>
+      <strong>{{ trip.endTime | date : "HH:mm" }}</strong>
+    </div>
+  </sbb-card>
 
-      @for (leg of trip.legs; track leg.id) {
-        @if ($index == 0) {
-          <sbb-card>
-            <sbb-icon name="location-pin-small"></sbb-icon>
-            {{ this.resolveStationNameFromUic(leg.timedLeg.start.stopPlaceRef.stopPlaceRef) }}
-          </sbb-card>
-        }
-        <sbb-card>
-          <b>{{ leg.timedLeg.start.serviceDeparture.timetabledTime | date: 'HH:mm' }}</b>&nbsp;<b>{{ this.resolveStationNameFromUic(leg.timedLeg.start.stopPlaceRef.stopPlaceRef) }}</b><br>
-          <span class="middle-row"><sbb-icon name="picto:train-right"></sbb-icon>&nbsp;
-          <sbb-icon name="{{ leg.timedLeg.service.carriers[0].name.toLowerCase() }}"></sbb-icon>
-          {{ leg.timedLeg.service.vehicleNumbers }}</span><br>
+  @for (leg of trip.legs; track leg.id) { @if ($index == 0) {
+  <sbb-card>
+    <sbb-icon name="location-pin-small"></sbb-icon>
+    {{
+      this.resolveStationNameFromUic(
+        leg.timedLeg.start.stopPlaceRef.stopPlaceRef
+      )
+    }}
+  </sbb-card>
+  }
+  <sbb-card>
+    <b>{{
+      leg.timedLeg.start.serviceDeparture.timetabledTime | date : "HH:mm"
+    }}</b
+    >&nbsp;<b>{{
+      this.resolveStationNameFromUic(
+        leg.timedLeg.start.stopPlaceRef.stopPlaceRef
+      )
+    }}</b
+    ><br />
+    <span class="middle-row"
+      ><sbb-icon name="picto:train-right"></sbb-icon>&nbsp;
+      <sbb-icon
+        name="{{ leg.timedLeg.service.carriers[0].name.toLowerCase() }}"
+      ></sbb-icon>
+      {{ leg.timedLeg.service.vehicleNumbers }}</span
+    ><br />
 
-          @if ($index == trip.legs.length - 1) {
-            <b>{{ leg.timedLeg.end.serviceArrival.timetabledTime | date: 'HH:mm' }}</b>&nbsp;
-            <b>{{ this.resolveStationNameFromUic(leg.timedLeg.end.stopPlaceRef.stopPlaceRef) }}</b>
-          } @else {
-            {{ leg.timedLeg.end.serviceArrival.timetabledTime | date: 'HH:mm' }}&nbsp;{{ this.resolveStationNameFromUic(leg.timedLeg.end.stopPlaceRef.stopPlaceRef) }}
-          }
-        </sbb-card>
-        @if ($index == trip.legs.length - 1) {
-          <sbb-card>
-            <sbb-icon name="location-pin-small"></sbb-icon>
-            {{ this.resolveStationNameFromUic(leg.timedLeg.end.stopPlaceRef.stopPlaceRef) }}
-          </sbb-card>
-        }
-      }
+    @if ($index == trip.legs.length - 1) {
+    <b>{{ leg.timedLeg.end.serviceArrival.timetabledTime | date : "HH:mm" }}</b
+    >&nbsp;
+    <b>{{
+      this.resolveStationNameFromUic(leg.timedLeg.end.stopPlaceRef.stopPlaceRef)
+    }}</b>
+    } @else {
+    {{
+      leg.timedLeg.end.serviceArrival.timetabledTime | date : "HH:mm"
+    }}&nbsp;{{
+      this.resolveStationNameFromUic(leg.timedLeg.end.stopPlaceRef.stopPlaceRef)
+    }}
     }
-    <br>
-    <sbb-button (click)="confirm()" [disabled]="loading">
-      @if (loading) {
-        <sbb-loading-indicator variant="circle" size="s"></sbb-loading-indicator>
-      }
-      Confirm Booking
-    </sbb-button>
+  </sbb-card>
+  @if ($index == trip.legs.length - 1) {
+  <sbb-card>
+    <sbb-icon name="location-pin-small"></sbb-icon>
+    {{
+      this.resolveStationNameFromUic(leg.timedLeg.end.stopPlaceRef.stopPlaceRef)
+    }}
+  </sbb-card>
+  } } }
+  <br />
+  <sbb-button (click)="confirm()" [disabled]="loading">
+    @if (loading) {
+    <sbb-loading-indicator variant="circle" size="s"></sbb-loading-indicator>
+    } Confirm Booking
+  </sbb-button>
   }
 </div>

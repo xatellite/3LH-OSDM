@@ -14,7 +14,7 @@ sbb-icon {
 }
 
 sbb-card {
-  width: 50%;
+  @apply w-full md:w-1/2;
   margin-bottom: var(--sbb-spacing-fixed-1x);
 }
 
