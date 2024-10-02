@@ -46,6 +46,7 @@ export class LandingComponent implements OnInit {
   stations: string[] = [];
   loading = false;
   selectedOffers: any;
+  selectedTrip?: string;
   useMockData = false;
 
   ngOnInit() {
@@ -105,5 +106,6 @@ export class LandingComponent implements OnInit {
 
   selectTrip(trip: any) {
     this.selectedOffers = this.offerResults.filter((offer: any) => offer.tripCoverage.coveredTripId === trip.id);
+    this.selectedTrip = trip.id;
   }
 }
